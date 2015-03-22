@@ -8,13 +8,29 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".MainActivity"
+            android:name=".Activities.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".Activities.TipActivity"
+            android:label="@string/title_activity_tip" >
+        </activity>
+        <activity
+            android:name=".Activities.SightingActivity"
+            android:label="@string/title_activity_sighting" >
+        </activity>
+        <activity
+            android:name=".Activities.NoteActivity"
+            android:label="@string/title_activity_note" >
+        </activity>
+        <activity
+            android:name=".Activities.LinksActivity"
+            android:label="@string/title_activity_links" >
         </activity>
     </application>
 
