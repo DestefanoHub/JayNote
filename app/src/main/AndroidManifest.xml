@@ -29,8 +29,16 @@
             android:label="@string/title_activity_note" >
         </activity>
         <activity
-            android:name=".Activities.LinksActivity"
+            android:name=".Activities.LinkListActivity"
             android:label="@string/title_activity_links" >
+        </activity>
+        <activity
+            android:name=".Activities.NoteListActivity"
+            android:label="@string/title_activity_note_list" >
+        </activity>
+        <activity
+            android:name=".Activities.SightingListActivity"
+            android:label="@string/title_activity_sighting_list" >
         </activity>
     </application>
 

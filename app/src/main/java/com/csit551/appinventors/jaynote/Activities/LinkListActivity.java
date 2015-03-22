@@ -8,12 +8,12 @@ import android.view.MenuItem;
 import com.csit551.appinventors.jaynote.R;
 
 
-public class LinksActivity extends ActionBarActivity {
+public class LinkListActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_links);
+        setContentView(R.layout.activity_link_list);
     }
 
 

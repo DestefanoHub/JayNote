@@ -7,4 +7,6 @@
     <string name="title_activity_sighting">SightingActivity</string>
     <string name="title_activity_note">NoteActivity</string>
     <string name="title_activity_links">LinksActivity</string>
+    <string name="title_activity_note_list">NoteListActivity</string>
+    <string name="title_activity_sighting_list">SightingListActivity</string>
 </resources>
