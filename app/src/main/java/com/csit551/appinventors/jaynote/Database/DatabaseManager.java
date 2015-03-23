@@ -19,7 +19,7 @@ public class DatabaseManager
     private static final String DB_TABLE_NOTES = "notes";
     private static final int DB_VERSION = 1;
     private static final String CREATE_TABLE_SIGHTINGS = "CREATE TABLE " + DB_TABLE_SIGHTINGS + " (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL);";
-    private static final String CREATE_TABLE_NOTES = "CREATE TABLE " + DB_TABLE_NOTES + " (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL);";
+    private static final String CREATE_TABLE_NOTES = "CREATE TABLE " + DB_TABLE_NOTES + " (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, text TEXT);";
     private SQLHelper sqlHelper;
     private SQLiteDatabase db;
     private Context context;
@@ -44,10 +44,10 @@ public class DatabaseManager
 
     public void insertSighting()
     {
-        ContentValues newContact = new ContentValues();
+        ContentValues newSighting = new ContentValues();
         try
         {
-            db.insertOrThrow(DB_TABLE_SIGHTINGS, null, );
+            db.insertOrThrow(DB_TABLE_SIGHTINGS, null, newSighting);
         }
         catch(Exception e) {
             Log.v("Insert_Sighting", e.getMessage());
@@ -58,9 +58,9 @@ public class DatabaseManager
     public void updateSighting(SightingsModel sighting)
     {
         try {
-            ContentValues updateContact = new ContentValues();
+            ContentValues updateSighting = new ContentValues();
             String args[] = new String[]{Integer.toString()};
-            db.update(DB_TABLE_SIGHTINGS, , "id=?", args);
+            db.update(DB_TABLE_SIGHTINGS, updateSighting, "id=?", args);
             db.close();
         }
         catch(Exception e)
@@ -99,7 +99,7 @@ public class DatabaseManager
         return sighting;
     }
 
-    public ArrayList<SightingsModel> getAllContacts()
+    public ArrayList<SightingsModel> getAllSightings()
     {
         ArrayList<SightingsModel> sightings = new ArrayList<>();
         String[] columns = new String[]{};
@@ -108,7 +108,7 @@ public class DatabaseManager
             cursor.moveToFirst();
 
             while (!cursor.isAfterLast()) {
-                .add(new);
+                sightings.add(new SightingsModel());
                 cursor.moveToNext();
             }
             if (cursor != null && !cursor.isClosed()) {
@@ -122,12 +122,13 @@ public class DatabaseManager
         return sightings;
     }
 
-    public void insertNote()
+    public void insertNote(String text)
     {
-        ContentValues newContact = new ContentValues();
+        ContentValues newNote = new ContentValues();
+        newNote.put("text", text);
         try
         {
-            db.insertOrThrow(DB_TABLE_NOTES, null, );
+            db.insertOrThrow(DB_TABLE_NOTES, null, newNote);
         }
         catch(Exception e) {
             Log.v("Insert_Note", e.getMessage());
@@ -138,9 +139,10 @@ public class DatabaseManager
     public void updateNote(NotesModel note)
     {
         try {
-            ContentValues updateContact = new ContentValues();
-            String args[] = new String[]{Integer.toString()};
-            db.update(DB_TABLE_NOTES, , "id=?", args);
+            ContentValues updateNote = new ContentValues();
+            updateNote.put("text", note.getText());
+            String args[] = new String[]{Integer.toString(note.getId())};
+            db.update(DB_TABLE_NOTES, updateNote, "id=?", args);
             db.close();
         }
         catch(Exception e)
@@ -152,7 +154,7 @@ public class DatabaseManager
     public void deleteNote(NotesModel note)
     {
         try {
-            String args[] = new String[]{Integer.toString()};
+            String args[] = new String[]{Integer.toString(note.getId())};
             db.delete(DB_TABLE_NOTES, "id=?", args);
             db.close();
         }
@@ -167,10 +169,10 @@ public class DatabaseManager
         NotesModel note = null;
         try {
             String[] args = new String[]{Integer.toString(id)};
-            String[] columns = new String[]{};
+            String[] columns = new String[]{"id", "text"};
             Cursor cursor = db.query(DB_TABLE_NOTES, columns, "id=?", args, null, null, null, null);
             cursor.moveToFirst();
-            note= new NotesModel();
+            note= new NotesModel(cursor.getInt(0), cursor.getString(1));
         }
         catch(Exception e)
         {
@@ -179,16 +181,16 @@ public class DatabaseManager
         return note;
     }
 
-    public ArrayList<NotesModel> getAllContacts()
+    public ArrayList<NotesModel> getAllNotes()
     {
         ArrayList<NotesModel> notes = new ArrayList<>();
-        String[] columns = new String[]{};
+        String[] columns = new String[]{"id", "text"};
         try {
             Cursor cursor = db.query(DB_TABLE_NOTES, columns, null, null, null, null, null);
             cursor.moveToFirst();
 
             while (!cursor.isAfterLast()) {
-                .add(new );
+                notes.add(new NotesModel(cursor.getInt(0), cursor.getString(1)));
                 cursor.moveToNext();
             }
             if (cursor != null && !cursor.isClosed()) {

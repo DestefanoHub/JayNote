@@ -7,7 +7,6 @@ import android.view.MenuItem;
 
 import com.csit551.appinventors.jaynote.R;
 
-
 public class MainActivity extends ActionBarActivity {
 
     @Override
@@ -15,6 +14,16 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
+
+
+
+
+
+
+
+
+
+
 
 
     @Override

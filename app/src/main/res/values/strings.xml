@@ -9,4 +9,9 @@
     <string name="title_activity_links">LinksActivity</string>
     <string name="title_activity_note_list">NoteListActivity</string>
     <string name="title_activity_sighting_list">SightingListActivity</string>
+    <string-array name="links">
+        <item>Survival Link 1</item>
+        <item>Survival Link 2</item>
+        <item>Survival Link 3</item>
+    </string-array>
 </resources>
