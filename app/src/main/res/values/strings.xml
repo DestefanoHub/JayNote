@@ -14,4 +14,6 @@
         <item>Survival Link 2</item>
         <item>Survival Link 3</item>
     </string-array>
+    <string name="new_sighting">+New Sighting!</string>
+    <string name="new_blanknote">+New Note</string>
 </resources>
