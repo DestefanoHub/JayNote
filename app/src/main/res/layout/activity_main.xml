@@ -41,7 +41,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:background="#00A3C7"
+        android:background="@drawable/round_button"
         android:singleLine="false" />
 
     <Button
@@ -53,7 +53,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:clickable="true"
-        android:background="#00A3C7" />
+        android:background="@drawable/round_button" />
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -63,18 +63,18 @@
         android:layout_alignRight="@+id/blank_button"
         android:layout_alignEnd="@+id/blank_button"
         android:src="@mipmap/smalljay"
-        android:background="#00A3C7" />
+        android:background="@drawable/round_button" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/your_sightings"
         android:id="@+id/textView"
-        android:layout_above="@+id/note_list"
-        android:layout_toRightOf="@+id/sighting_button"
-        android:layout_toEndOf="@+id/sighting_button"
         android:textSize="20dp"
         android:textColor="#ff000000"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_above="@+id/note_list"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>
