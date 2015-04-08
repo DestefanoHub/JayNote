@@ -16,4 +16,6 @@
     <string name="new_sighting">+New Sighting!</string>
     <string name="your_sightings">Your Sightings</string>
     <string name="new_blanknote">+New Note</string>
+    <string name="note_title">Name of Note</string>
+    <string name="insert_text_here">Insert Text Here:</string>
 </resources>
