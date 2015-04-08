@@ -41,7 +41,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:background="@drawable/round_button"
+        android:background="@drawable/round_vague_drawable"
         android:singleLine="false" />
 
     <Button
@@ -53,7 +53,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:clickable="true"
-        android:background="@drawable/round_button" />
+        android:background="@drawable/round_vague_drawable" />
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -63,7 +63,13 @@
         android:layout_alignRight="@+id/blank_button"
         android:layout_alignEnd="@+id/blank_button"
         android:src="@mipmap/smalljay"
-        android:background="@drawable/round_button" />
+        android:background="@drawable/round_vague_drawable" />
+
+
+<!--note that the button colors match the icon, ain't that sweet. -Cina-->
+<!--Also note, the image is a smaller version of "Cyanocorax_luxuosus_calling". It's the
+image of a green jay here if you want to use it elsewhere: https://en.wikipedia.org/wiki/Green_jay-->
+
 
     <TextView
         android:layout_width="wrap_content"

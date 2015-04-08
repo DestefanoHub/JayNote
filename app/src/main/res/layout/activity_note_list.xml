@@ -12,7 +12,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignRight="@+id/note_list"
         android:src="@mipmap/smalljay"
-        android:background="@drawable/round_button" />
+        android:background="@drawable/round_vague_drawable" />
 
     <ListView
         android:layout_width="match_parent"
@@ -20,6 +20,7 @@
         android:id="@+id/note_list"
         android:choiceMode="singleChoice"
         android:drawSelectorOnTop="false"
+        android:background="#0FAD00"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
