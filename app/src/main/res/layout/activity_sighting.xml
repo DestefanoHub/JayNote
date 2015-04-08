@@ -38,4 +38,14 @@
         android:layout_alignParentStart="true"
         android:background="@drawable/save_drawable" />
 
+    <GridLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/other_options_button"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/delete_button"
+        android:layout_alignRight="@+id/other_options_button"
+        android:layout_alignEnd="@+id/other_options_button"></GridLayout>
+
 </RelativeLayout>
