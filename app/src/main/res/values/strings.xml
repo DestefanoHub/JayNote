@@ -9,10 +9,26 @@
     <string name="title_activity_note_list">Field Notes</string>
     <string name="title_activity_sighting_list">SightingListActivity</string>
     <string-array name="links">
-        <item>Survival Link 1</item>
-        <item>Survival Link 2</item>
-        <item>Survival Link 3</item>
+        <item>http://ees.elsevier.com/wemj/</item>
+        <!--^Wilderness & Environmental Medicine-->
+        <item>http://www.nols.edu/</item>
+        <!--^National Outdoor LeaderShip School-->
+        <item>http://store.hesperian.org/HB/prod/B010R.html</item>
+        <!--^Where There is No Doctor Book-->
+        <item>http://www.wildsafe.org/ </item>
+        <!--^Center For Wilderness Safety-->
+        <item>http://morethanjustsurviving.com/how-to-find-civilization-when-you-have-no-idea-where-you-are/</item>
+        <!--^^How to Find Civilization-->
+        <item>http://survivalshelf.com/</item>
+        <!--^Survival Shelf-->
+        <item>http://www.shtfpreparedness.com/bug-out-bag-checklist/</item>
+        <!--^Making a Bug-Out Bag; Useful for emergency situations.-->
+        <item>http://urbanprepperchick.blogspot.com/2012/06/blog-post_10.html</item>
+        <!--^Various PDFs for Survival-->
+        <item>https://en.wikipedia.org/wiki/Ten_Essentials</item>
+        <!--^Ten Essentials for hikers-->
     </string-array>
+    
     <string name="new_sighting">+New Sighting!</string>
     <string name="your_sightings">Your Sightings</string>
     <string name="new_blanknote">+New Note</string>
