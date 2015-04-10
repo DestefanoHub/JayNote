@@ -13,7 +13,7 @@ public class TipActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tip);
+        setContentView(R.layout.activity_tip_list);
     }
 
 

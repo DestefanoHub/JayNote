@@ -4,17 +4,32 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import com.csit551.appinventors.jaynote.R;
 
-
-public class LinksActivity extends ActionBarActivity {
+public class LinkListActivity extends ActionBarActivity
+{
+    private ListView linkList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_links);
+        setContentView(R.layout.activity_link_list);
+
+        linkList = (ListView) findViewById(R.id.link_list);
     }
+
+
+
+
+
+
+
+
+
+
 
 
     @Override

@@ -1,11 +1,86 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="#B4FF00">
 
-    <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/TipsScroller"
+        android:text="Survival Tips Testing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="3dip"
+        android:ellipsize="marquee"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:scrollHorizontally="true"
+        android:textColor="#0FAD00"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:clickable="true"
+        android:layout_toLeftOf="@+id/other_options_button"
+        android:layout_toStartOf="@+id/other_options_button" />
+
+    <ListView
+        android:id="@+id/note_list"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:textFilterEnabled="false"
+        android:background="#0FAD00"
+        android:layout_above="@+id/sighting_button"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/other_options_button" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/new_sighting"
+        android:id="@+id/sighting_button"
+        android:clickable="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="@drawable/round_vague_drawable"
+        android:singleLine="false" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/new_blanknote"
+        android:id="@+id/blank_button"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:clickable="true"
+        android:background="@drawable/round_vague_drawable" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/other_options_button"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/blank_button"
+        android:layout_alignEnd="@+id/blank_button"
+        android:src="@mipmap/smalljay"
+        android:background="@drawable/round_vague_drawable" />
+
+
+<!--note that the button colors match the icon, ain't that sweet. -Cina-->
+<!--Also note, the image is a smaller version of "Cyanocorax_luxuosus_calling". It's the
+image of a green jay here if you want to use it elsewhere: https://en.wikipedia.org/wiki/Green_jay-->
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/your_sightings"
+        android:id="@+id/textView"
+        android:textSize="20dp"
+        android:textColor="#ff000000"
+        android:textStyle="bold"
+        android:layout_above="@+id/note_list"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>
