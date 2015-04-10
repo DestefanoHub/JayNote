@@ -6,12 +6,14 @@ package com.csit551.appinventors.jaynote.Database;
 public class NotesModel
 {
     private int id;
-    private String text;
+    private String name;
+    private String body;
 
-    public NotesModel(int id, String text)
+    public NotesModel(int id, String name, String body)
     {
         this.id = id;
-        this.text = text;
+        this.name = name;
+        this.body = body;
     }
 
     public int getId()
@@ -24,13 +26,23 @@ public class NotesModel
         this.id = id;
     }
 
-    public String getText()
+    public String getName()
     {
-        return this.text;
+        return this.name;
     }
 
-    public void setText(String text)
+    public void setName(String name)
     {
-        this.text = text;
+        this.name = name;
+    }
+
+    public String getBody()
+    {
+        return this.body;
+    }
+
+    public void setBody(String body)
+    {
+        this.body = body;
     }
 }

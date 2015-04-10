@@ -52,19 +52,18 @@ public class SightingsListAdapter extends BaseAdapter
         if (view == null)
         {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            view = inflater.inflate(R.layout.activity_sighting_list, null);
+            view = inflater.inflate(R.layout.sighting_adapter, null);
         }
 
-        /*name = (TextView) view.findViewById(R.id.name);
-        size = (TextView) view.findViewById(R.id.size);
+        name = (TextView) view.findViewById(R.id.name);
+        /*size = (TextView) view.findViewById(R.id.size);
         type = (TextView) view.findViewById(R.id.type);
         color = (TextView) view.findViewById(R.id.color);
         date = (Something) view.findViewById(R.id.date);
-        name = (Something) view.findViewById(R.id.stime);
-        location = (TextView) view.findViewById(R.id.location);
+        time = (Something) view.findViewById(R.id.stime);
+        location = (TextView) view.findViewById(R.id.location);*/
         SightingsModel sighting = sightings.get(position);
         name.setText(sighting.getName());
-        size.setText();*/
 
         return view;
     }

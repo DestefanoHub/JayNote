@@ -19,6 +19,7 @@ public class NotesListAdapter extends BaseAdapter
 {
     private Context context;
     private ArrayList<NotesModel> notes;
+    private TextView nameText;
     private TextView bodyText;
 
     public NotesListAdapter(ArrayList<NotesModel> notes, Context context)
@@ -49,9 +50,11 @@ public class NotesListAdapter extends BaseAdapter
             view = inflater.inflate(R.layout.activity_note_list, null);
         }
 
-        /*bodyText = (TextView) view.findViewById(R.id.text);
+        nameText = (TextView) view.findViewById(R.id.name);
+        bodyText = (TextView) view.findViewById(R.id.body);
         NotesModel note = notes.get(position);
-        bodyText.setText(note.getText());*/
+        nameText.setText(note.getName());
+        bodyText.setText(note.getBody());
 
         return view;
     }
