@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.TextView;
 
 import com.csit551.appinventors.jaynote.Database.NotesModel;
 import com.csit551.appinventors.jaynote.R;
@@ -18,6 +19,7 @@ public class NotesListAdapter extends BaseAdapter
 {
     private Context context;
     private ArrayList<NotesModel> notes;
+    private TextView bodyText;
 
     public NotesListAdapter(ArrayList<NotesModel> notes, Context context)
     {
@@ -46,6 +48,10 @@ public class NotesListAdapter extends BaseAdapter
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(R.layout.activity_note_list, null);
         }
+
+        /*bodyText = (TextView) view.findViewById(R.id.text);
+        NotesModel note = notes.get(position);
+        bodyText.setText(note.getText());*/
 
         return view;
     }
