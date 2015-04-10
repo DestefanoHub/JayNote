@@ -13,8 +13,9 @@ public class SightingsModel
     private String date;
     private String time;
     private String location;
+    private String misc;
 
-    public SightingsModel(int id, String name, String size, String type, String color, String date, String time, String location)
+    public SightingsModel(int id, String name, String size, String type, String color, String date, String time, String location, String misc)
     {
         this.id = id;
         this.name = name;
@@ -24,6 +25,7 @@ public class SightingsModel
         this.date = date;
         this.time = time;
         this.location = location;
+        this.misc = misc;
     }
 
     public int getId()
@@ -104,5 +106,15 @@ public class SightingsModel
     public void setLocation(String location)
     {
         this.location = location;
+    }
+
+    public String getMisc()
+    {
+        return this.misc;
+    }
+
+    public void setMisc(String misc)
+    {
+        this.misc = misc;
     }
 }
