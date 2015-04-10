@@ -18,7 +18,7 @@ public class DatabaseManager
     private static final String DB_TABLE_SIGHTINGS = "sightings";
     private static final String DB_TABLE_NOTES = "notes";
     private static final int DB_VERSION = 1;
-    private static final String CREATE_TABLE_SIGHTINGS = "CREATE TABLE " + DB_TABLE_SIGHTINGS + " (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, name TEXT NOT NULL, size TEXT, type TEXT, color TEXT, date TEXT, time TEXT, location TEXT);";
+    private static final String CREATE_TABLE_SIGHTINGS = "CREATE TABLE " + DB_TABLE_SIGHTINGS + " (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, name TEXT NOT NULL, size TEXT, type TEXT, color TEXT, date TEXT, time TEXT, location TEXT, misc TEXT);";
     private static final String CREATE_TABLE_NOTES = "CREATE TABLE " + DB_TABLE_NOTES + " (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, name TEXT, body TEXT);";
     private SQLHelper sqlHelper;
     private SQLiteDatabase db;
@@ -42,7 +42,7 @@ public class DatabaseManager
         sqlHelper.close();
     }
 
-    public void insertSighting(String sName, String sSize, String sType, String sColor, String sDate, String sTime, String sLocation)
+    public void insertSighting(String sName, String sSize, String sType, String sColor, String sDate, String sTime, String sLocation, String sMics)
     {
         ContentValues newSighting = new ContentValues();
         newSighting.put("name", sName);
@@ -52,6 +52,7 @@ public class DatabaseManager
         newSighting.put("date", sDate);
         newSighting.put("time", sTime);
         newSighting.put("location", sLocation);
+        newSighting.put("misc", sMics);
         try
         {
             db.insertOrThrow(DB_TABLE_SIGHTINGS, null, newSighting);
@@ -73,6 +74,7 @@ public class DatabaseManager
             updateSighting.put("date", sighting.getDate());
             updateSighting.put("time", sighting.getTime());
             updateSighting.put("location", sighting.getLocation());
+            updateSighting.put("misc", sighting.getMisc());
             String args[] = new String[]{Integer.toString(sighting.getId())};
             db.update(DB_TABLE_SIGHTINGS, updateSighting, "id=?", args);
             db.close();
@@ -104,7 +106,7 @@ public class DatabaseManager
             String[] columns = new String[]{"id", "name", "size", "type", "color", "date", "time", "location"};
             Cursor cursor = db.query(DB_TABLE_SIGHTINGS, columns, "id=?", args, null, null, null, null);
             cursor.moveToFirst();
-            sighting = new SightingsModel(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5), cursor.getString(6), cursor.getString(7));
+            sighting = new SightingsModel(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5), cursor.getString(6), cursor.getString(7), cursor.getString(8));
         }
         catch(Exception e)
         {
@@ -122,7 +124,7 @@ public class DatabaseManager
             cursor.moveToFirst();
 
             while (!cursor.isAfterLast()) {
-                sightings.add(new SightingsModel(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5), cursor.getString(6), cursor.getString(7)));
+                sightings.add(new SightingsModel(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5), cursor.getString(6), cursor.getString(7), cursor.getString(8)));
                 cursor.moveToNext();
             }
             if (!cursor.isClosed()) {
