@@ -8,39 +8,39 @@
     <string name="title_activity_note_list">Field Notes</string>
     <string name="title_activity_sighting_list">SightingListActivity</string>
 
-   <!-- <string-array name="links">
+    <string-array name="links">
         <item>http://ees.elsevier.com/wemj/</item>
-        &lt;!&ndash;^Wilderness & Environmental Medicine&ndash;&gt;
+        <!--^Wilderness & Environmental Medicine-->
         <item>http://www.nols.edu/</item>
-        &lt;!&ndash;^National Outdoor LeaderShip School&ndash;&gt;
+        <!--^National Outdoor LeaderShip School-->
         <item>http://store.hesperian.org/HB/prod/B010R.html</item>
-        &lt;!&ndash;^Where There is No Doctor Book&ndash;&gt;
+        <!--^Where There is No Doctor Book-->
         <item>http://www.wildsafe.org/ </item>
-        &lt;!&ndash;^Center For Wilderness Safety&ndash;&gt;
+        <!--^Center For Wilderness Safety-->
         <item>http://morethanjustsurviving.com/how-to-find-civilization-when-you-have-no-idea-where-you-are/</item>
-        &lt;!&ndash;^^How to Find Civilization&ndash;&gt;
+        <!--^^How to Find Civilization-->
         <item>http://survivalshelf.com/</item>
-        &lt;!&ndash;^Survival Shelf&ndash;&gt;
+        <!--^Survival Shelf-->
         <item>http://www.shtfpreparedness.com/bug-out-bag-checklist/</item>
-        &lt;!&ndash;^Making a Bug-Out Bag; Useful for emergency situations.&ndash;&gt;
+        <!--^Making a Bug-Out Bag; Useful for emergency situations.-->
         <item>http://urbanprepperchick.blogspot.com/2012/06/blog-post_10.html</item>
-        &lt;!&ndash;^Various PDFs for Survival&ndash;&gt;
+        <!--^Various PDFs for Survival-->
         <item>https://en.wikipedia.org/wiki/Ten_Essentials</item>
-        &lt;!&ndash;^Ten Essentials for hikers&ndash;&gt;
+        <!--^Ten Essentials for hikers-->
     </string-array>
 
-    &lt;!&ndash;Shelter, fire, food, water, first aid. These are the survival tips&ndash;&gt;
+    <!--Shelter, fire, food, water, first aid. These are the survival tips-->
     <string-array name="shelter">
        <item>One shelter that has worked very well in the past, is a lean-to shelter, it is fairly easy to construct, and is very effective.</item>
        <item>Make the inside of your shelter as small as you can in cold conditions with lots of insulation</item>
-       <item>Building a fire reflector (a wall of sticks, rocks, etc.) will improve a lean-to by reflecting the fire&apos;s warmth back into the open side of the lean-to.</item>
+       <item>Building a fire reflector (a wall of sticks, rocks, etc.) will improve a lean-to by reflecting the fire\'s warmth back into the open side of the lean-to.</item>
        <item>Bring one or two metallic rescue blankets wherever you go. They are useful for building shelters, reflectors, and water collectors, and you can even cook with them.</item>
        <item>Bring a cheap, lightweight tent with you whenever you go hiking, even if you are not staying the night. Consider a tube tent. A tube can be constructed by gluing (with waterproof glue) the long edge of a thin tarp or plastic drop cloth to the matching edge, creating a tube of-sorts. To use, simply string the string from one end of the tube through the other end, and tie the ends between two trees. If you are injured in the wilderness, such a shelter can be easy to erect quickly. When injured (particularly in cold weather) proper shelter can be essential for your survival.</item>
     </string-array>
 
     <string-array name="fire">
         <item>Paper, cardboard, or unneeded cloth can be easy to start on fire</item>
-        <item>Use small twigs from under the main canopy of the tree as tinder. (If they don&apos;t break off easily, they are still green.)</item>
+        <item>Use small twigs from under the main canopy of the tree as tinder. (If they don\'t break off easily, they are still green.)</item>
         <item>Dry pine needles work great to start fires and give off lots of smoke.</item>
         <item>Rubbing bark between your hands until it is fluffy also makes excellent tinder</item>
         <item>The old fire-bow trick is very hard work even under the best circumstances</item>
@@ -53,16 +53,16 @@
     <string-array name="food">
         <item>Do not eat mushrooms or fungi unless you know for certain that it is edible. Most are poisonous, and there is no way of determining which ones are edible without properly identifying the species.</item>
         <item>Plants with umbrella-shaped flowers should not be eaten.</item>
-        <item>The berry rule is that 10% of white and yellow berries are edible; 50% of red berries are edible; 90% of blue, black, or purple berries are edible, and 99% of aggregated berries are edible.</item>
+        <item>The berry rule is that 10\%% of white and yellow berries are edible; 50\%% of red berries are edible; 90\%% of blue, black, or purple berries are edible, and 99\%% of aggregated berries are edible.</item>
         <item>Aggregated fruits and berries are almost always edible (blackberry, raspberry, salmonberry, and thimbleberry).</item>
         <item>Wild nuts that taste or smell like almonds are EXTREMELY dangerous. They contain hydrogen cyanide.</item>
-        <item>Plants with shiny leaves or a milky sap are considered to be poisonous. The two that don&apos;t follow this rule are Dandelion and Fig. (Both have milky sap.)</item>
+        <item>Plants with shiny leaves or a milky sap are considered to be poisonous. The two that don\'t follow this rule are Dandelion and Fig. (Both have milky sap.)</item>
         <item>Single fruits on a stem are usually considered safe to eat.</item>
         <item>Most worms and grub are good to eat. It helps to toast grub until they are dried.</item>
         <item>Avoid fuzzy, hairy or bright colored insects.</item>
         <item>Avoid insects that sting or bite.</item>
         <item>Fish are easier to catch than wild game.</item>
-        <item>The time frame of weeks may surprise some, but the reality is that in most survival situations, food is the least important factor, i.e., if you make it your number one survival priority, you&apos;ll probably get killed by something more important like not having sought adequate shelter while you were chasing badgers with a pointy stick.</item>
+        <item>The time frame of weeks may surprise some, but the reality is that in most survival situations, food is the least important factor.</item>
     </string-array>
 
     <string-array name="water">
@@ -87,7 +87,7 @@
         <item>Wounds with spurting, bright red blood require immediate pressure to stop the bleeding. If necessary, you may need to use your finger to push on the bleeding artery.</item>
         <item>Relatively harmless local infections at the wound site can quickly escalate into life-threatening systemic infections if proper care is not taken.</item>
         <item>The basic treatment is oil of cloves on packing in the sore tooth to reduce the pain. </item>
-    </string-array>-->
+    </string-array>
 
     <string name="new_sighting">+New Sighting!</string>
     <string name="your_sightings">Your Sightings</string>
