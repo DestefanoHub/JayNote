@@ -19,7 +19,7 @@ public class DatabaseManager
     private static final String DB_TABLE_NOTES = "notes";
     private static final int DB_VERSION = 1;
     private static final String CREATE_TABLE_SIGHTINGS = "CREATE TABLE " + DB_TABLE_SIGHTINGS + " (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, name TEXT NOT NULL, size TEXT, type TEXT, color TEXT, date TEXT, time TEXT, location TEXT, misc TEXT);";
-    private static final String CREATE_TABLE_NOTES = "CREATE TABLE " + DB_TABLE_NOTES + " (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, name TEXT, body TEXT);";
+    private static final String CREATE_TABLE_NOTES = "CREATE TABLE " + DB_TABLE_NOTES + " (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, name TEXT NOT NULL, body TEXT);";
     private SQLHelper sqlHelper;
     private SQLiteDatabase db;
     private Context context;
@@ -42,7 +42,7 @@ public class DatabaseManager
         sqlHelper.close();
     }
 
-    public void insertSighting(String sName, String sSize, String sType, String sColor, String sDate, String sTime, String sLocation, String sMics)
+    public void insertSighting(String sName, String sSize, String sType, String sColor, String sDate, String sTime, String sLocation, String sMisc)
     {
         ContentValues newSighting = new ContentValues();
         newSighting.put("name", sName);
@@ -52,7 +52,7 @@ public class DatabaseManager
         newSighting.put("date", sDate);
         newSighting.put("time", sTime);
         newSighting.put("location", sLocation);
-        newSighting.put("misc", sMics);
+        newSighting.put("misc", sMisc);
         try
         {
             db.insertOrThrow(DB_TABLE_SIGHTINGS, null, newSighting);
@@ -103,10 +103,11 @@ public class DatabaseManager
         SightingsModel sighting = null;
         try {
             String[] args = new String[]{Integer.toString(id)};
-            String[] columns = new String[]{"id", "name", "size", "type", "color", "date", "time", "location"};
+            String[] columns = new String[]{"id", "name", "size", "type", "color", "date", "time", "location", "misc"};
             Cursor cursor = db.query(DB_TABLE_SIGHTINGS, columns, "id=?", args, null, null, null, null);
             cursor.moveToFirst();
             sighting = new SightingsModel(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5), cursor.getString(6), cursor.getString(7), cursor.getString(8));
+            cursor.close();
         }
         catch(Exception e)
         {
@@ -118,7 +119,7 @@ public class DatabaseManager
     public ArrayList<SightingsModel> getAllSightings()
     {
         ArrayList<SightingsModel> sightings = new ArrayList<>();
-        String[] columns = new String[]{"id", "name", "size", "type", "color", "date", "time", "location"};
+        String[] columns = new String[]{"id", "name", "size", "type", "color", "date", "time", "location", "misc"};
         try {
             Cursor cursor = db.query(DB_TABLE_SIGHTINGS, columns, null, null, null, null, null);
             cursor.moveToFirst();
@@ -187,7 +188,7 @@ public class DatabaseManager
         NotesModel note = null;
         try {
             String[] args = new String[]{Integer.toString(id)};
-            String[] columns = new String[]{"id", "text"};
+            String[] columns = new String[]{"id", "name", "text"};
             Cursor cursor = db.query(DB_TABLE_NOTES, columns, "id=?", args, null, null, null, null);
             cursor.moveToFirst();
             note= new NotesModel(cursor.getInt(0), cursor.getString(1), cursor.getString(2));
@@ -202,7 +203,7 @@ public class DatabaseManager
     public ArrayList<NotesModel> getAllNotes()
     {
         ArrayList<NotesModel> notes = new ArrayList<>();
-        String[] columns = new String[]{"id", "text"};
+        String[] columns = new String[]{"id", "name", "text"};
         try {
             Cursor cursor = db.query(DB_TABLE_NOTES, columns, null, null, null, null, null);
             cursor.moveToFirst();

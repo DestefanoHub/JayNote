@@ -87,7 +87,8 @@ public class NoteActivity extends ActionBarActivity
         });
     }
 
-    public void viewNote() {
+    public void viewNote()
+    {
         save.setVisibility(View.GONE);
         delete.setVisibility(View.GONE);
         noteName.setText(note.getName());
@@ -119,9 +120,9 @@ public class NoteActivity extends ActionBarActivity
             @Override
             public void onClick(View v)
             {
-                String name = noteName.getText().toString();
-                String body = noteBody.getText().toString();
-                db.insertNote(name, body);
+                note.setName(noteName.getText().toString());
+                note.setBody(noteBody.getText().toString());
+                db.updateNote(note);
                 setResult(RESULT_OK);
                 finish();
             }

@@ -37,7 +37,7 @@ public class MainActivity extends ActionBarActivity
 
         sightingsList = (ListView) findViewById(R.id.sighting_list);
         sightings = db.getAllSightings();
-        sightingsList.setAdapter(new SightingsListAdapter(sightings, this)); /*nullpointer exception here-cina*/
+        sightingsList.setAdapter(new SightingsListAdapter(sightings, this));
         //Set listener to view existing sightings
         sightingsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -88,8 +88,8 @@ public class MainActivity extends ActionBarActivity
                     Intent intent = new Intent(context, SightingActivity.class);
                     //view/edit an existing sighting
                     intent.putExtra("create_or_update", 1);
-                    SightingsModel contact = (SightingsModel) sightingsList.getAdapter().getItem(position);
-                    intent.putExtra("contact_id", contact.getId());
+                    SightingsModel sighting = (SightingsModel) sightingsList.getAdapter().getItem(position);
+                    intent.putExtra("sighting_id", sighting.getId());
                     startActivityForResult(intent, REQUEST_CODE);
                 }
             });

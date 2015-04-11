@@ -25,7 +25,7 @@
         android:id="@+id/sighting_list"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:textFilterEnabled="false"
+
         android:background="#0FAD00"
         android:layout_above="@+id/sighting_button"
         android:layout_alignParentRight="true"

@@ -38,6 +38,16 @@
         android:layout_alignParentStart="true"
         android:background="@drawable/save_drawable" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit"
+        android:id="@+id/edit_button"
+        android:clickable="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
     <GridLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
@@ -81,24 +91,6 @@
             android:layout_row="1"
             android:layout_column="5"
             android:inputType="textMultiLine"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="@string/estimated_weight"
-            android:id="@+id/textView4"
-            android:layout_row="2"
-            android:layout_column="0" />
-
-        <EditText
-            android:layout_width="302dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/estimated_weight_input"
-            android:hint="@string/weight_hint"
-            android:layout_row="2"
-            android:layout_column="5"
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
         <TextView
