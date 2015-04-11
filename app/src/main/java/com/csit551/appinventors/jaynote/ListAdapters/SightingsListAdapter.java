@@ -35,7 +35,8 @@ public class SightingsListAdapter extends BaseAdapter
 
     public int getCount()
     {
-        return sightings.size();
+
+            return sightings.size();        /*nullpointerexception-cina*/
     }
 
     public Object getItem(int position)

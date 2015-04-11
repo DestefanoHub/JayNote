@@ -39,7 +39,7 @@
         <activity
             android:name=".Activities.SightingListActivity"
             android:label="@string/title_activity_sighting_list" >
-        </activity>
+        </activity>   <!--^Do you mean SightingsListAdapter or -->
     </application>
 
 </manifest>

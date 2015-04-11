@@ -37,7 +37,7 @@ public class MainActivity extends ActionBarActivity
 
         sightingsList = (ListView) findViewById(R.id.sighting_list);
         sightings = db.getAllSightings();
-        sightingsList.setAdapter(new SightingsListAdapter(sightings, this));
+        sightingsList.setAdapter(new SightingsListAdapter(sightings, this)); /*nullpointer exception here-cina*/
         //Set listener to view existing sightings
         sightingsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
