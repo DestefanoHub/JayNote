@@ -27,7 +27,7 @@ public class SightingsListAdapter extends BaseAdapter
     private Something time;*/
     private TextView location;
 
-    public SightingsListAdapter(ArrayList<SightingsModel> link, Context context)
+    public SightingsListAdapter(ArrayList<SightingsModel> sightings, Context context)
     {
         this.context = context;
         this.sightings = sightings;
@@ -35,8 +35,7 @@ public class SightingsListAdapter extends BaseAdapter
 
     public int getCount()
     {
-
-            return sightings.size();        /*nullpointerexception-cina*/
+        return sightings.size();
     }
 
     public Object getItem(int position)

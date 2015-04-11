@@ -36,10 +36,6 @@
             android:name=".Activities.NoteListActivity"
             android:label="@string/title_activity_note_list" >
         </activity>
-        <activity
-            android:name=".Activities.SightingListActivity"
-            android:label="@string/title_activity_sighting_list" >
-        </activity>   <!--^Do you mean SightingsListAdapter or -->
     </application>
 
 </manifest>
