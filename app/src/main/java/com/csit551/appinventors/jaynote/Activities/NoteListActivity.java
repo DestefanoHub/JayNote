@@ -1,31 +1,55 @@
 package com.csit551.appinventors.jaynote.Activities;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
 
+import com.csit551.appinventors.jaynote.Database.DatabaseManager;
+import com.csit551.appinventors.jaynote.Database.NotesModel;
+import com.csit551.appinventors.jaynote.ListAdapters.NotesListAdapter;
 import com.csit551.appinventors.jaynote.R;
 
+import java.util.ArrayList;
 
-public class NoteListActivity extends ActionBarActivity {
+
+public class NoteListActivity extends ActionBarActivity
+{
+    private DatabaseManager db;
+    private Context context;
+    private ListView notesList;
+    private ArrayList<NotesModel> notes;
+    private static final int REQUEST_CODE_NOTE = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_note_list);
+
+        db = new DatabaseManager(NoteListActivity.this.getApplicationContext());
+        context = this.getBaseContext();
+
+        notesList = (ListView) findViewById(R.id.note_list);
+        notes = db.getAllNotes();
+        notesList.setAdapter(new NotesListAdapter(notes, this));
+        //Set listener to view existing notes
+        notesList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(context, NoteActivity.class);
+                //view an existing note
+                intent.putExtra("create_view_edit", 1);
+                NotesModel note = (NotesModel) notesList.getAdapter().getItem(position);
+                intent.putExtra("note_id", note.getId());
+                startActivityForResult(intent, REQUEST_CODE_NOTE);
+            }
+        });
     }
-
-
-
-
-
-
-
-
-
-
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -41,9 +65,25 @@ public class NoteListActivity extends ActionBarActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if(id == R.id.action_home)
+        {
+            Intent intent = new Intent(NoteListActivity.this.getApplicationContext(), MainActivity.class);
+            startActivity(intent);
+            finish();
+        }
+
+        if(id == R.id.action_links)
+        {
+            Intent intent = new Intent(NoteListActivity.this.getApplicationContext(), LinkListActivity.class);
+            startActivity(intent);
+            finish();
+        }
+
+        if(id == R.id.action_tips)
+        {
+            Intent intent = new Intent(NoteListActivity.this.getApplicationContext(), TipActivity.class);
+            startActivity(intent);
+            finish();
         }
 
         return super.onOptionsItemSelected(item);

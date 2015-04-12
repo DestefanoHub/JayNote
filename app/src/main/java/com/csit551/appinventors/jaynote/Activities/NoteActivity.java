@@ -1,11 +1,9 @@
 package com.csit551.appinventors.jaynote.Activities;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,7 +13,7 @@ import com.csit551.appinventors.jaynote.Database.NotesModel;
 import com.csit551.appinventors.jaynote.R;
 
 
-public class NoteActivity extends ActionBarActivity
+public class NoteActivity extends Activity
 {
     private DatabaseManager db;
     private Context context;
@@ -81,7 +79,8 @@ public class NoteActivity extends ActionBarActivity
                 String name = noteName.getText().toString();
                 String body = noteBody.getText().toString();
                 db.insertNote(name, body);
-                setResult(RESULT_OK);
+                Intent newIntent = new Intent(NoteActivity.this.getApplicationContext(), NoteListActivity.class);
+                startActivity(newIntent);
                 finish();
             }
         });
@@ -136,36 +135,5 @@ public class NoteActivity extends ActionBarActivity
                 finish();
             }
         });
-    }
-
-
-
-
-
-
-
-
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_note, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 }

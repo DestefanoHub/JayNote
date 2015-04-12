@@ -26,7 +26,7 @@ public class MainActivity extends ActionBarActivity
     private Button newSighting;
     private Button newNote;
     private ArrayList<SightingsModel> sightings;
-    private static final int REQUEST_CODE = 1;
+    private static final int REQUEST_CODE_MAIN = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,11 +43,11 @@ public class MainActivity extends ActionBarActivity
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(context, SightingActivity.class);
-                //view/edit an existing sighting
+                //view an existing sighting
                 intent.putExtra("create_view_edit", 1);
                 SightingsModel sighting = (SightingsModel) sightingsList.getAdapter().getItem(position);
                 intent.putExtra("sighting_id", sighting.getId());
-                startActivityForResult(intent, REQUEST_CODE);
+                startActivityForResult(intent, REQUEST_CODE_MAIN);
             }
         });
 
@@ -58,7 +58,7 @@ public class MainActivity extends ActionBarActivity
                 Intent intent = new Intent(context, SightingActivity.class);
                 //create a new sighting
                 intent.putExtra("create_view_edit", 0);
-                startActivityForResult(intent, REQUEST_CODE);
+                startActivityForResult(intent, REQUEST_CODE_MAIN);
             }
         });
 
@@ -69,7 +69,8 @@ public class MainActivity extends ActionBarActivity
                 Intent intent = new Intent(context, NoteActivity.class);
                 //create a new note
                 intent.putExtra("create_view_edit", 0);
-                startActivityForResult(intent, REQUEST_CODE);
+                startActivity(intent);
+                finish();
             }
         });
     }
@@ -77,7 +78,7 @@ public class MainActivity extends ActionBarActivity
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent intent)
     {
-        if(resultCode == RESULT_OK)
+        if(resultCode == RESULT_OK && requestCode == REQUEST_CODE_MAIN)
         {
             sightings = db.getAllSightings();
             sightingsList.setAdapter(new SightingsListAdapter(sightings, this));
@@ -90,16 +91,11 @@ public class MainActivity extends ActionBarActivity
                     intent.putExtra("create_or_update", 1);
                     SightingsModel sighting = (SightingsModel) sightingsList.getAdapter().getItem(position);
                     intent.putExtra("sighting_id", sighting.getId());
-                    startActivityForResult(intent, REQUEST_CODE);
+                    startActivityForResult(intent, REQUEST_CODE_MAIN);
                 }
             });
         }
     }
-
-
-
-
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -115,9 +111,25 @@ public class MainActivity extends ActionBarActivity
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if(id == R.id.action_notes)
+        {
+            Intent intent = new Intent(MainActivity.this.getApplicationContext(), NoteListActivity.class);
+            startActivity(intent);
+            finish();
+        }
+
+        if(id == R.id.action_links)
+        {
+            Intent intent = new Intent(MainActivity.this.getApplicationContext(), LinkListActivity.class);
+            startActivity(intent);
+            finish();
+        }
+
+        if(id == R.id.action_tips)
+        {
+            Intent intent = new Intent(MainActivity.this.getApplicationContext(), TipActivity.class);
+            startActivity(intent);
+            finish();
         }
 
         return super.onOptionsItemSelected(item);

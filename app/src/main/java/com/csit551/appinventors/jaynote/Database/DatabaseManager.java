@@ -188,7 +188,7 @@ public class DatabaseManager
         NotesModel note = null;
         try {
             String[] args = new String[]{Integer.toString(id)};
-            String[] columns = new String[]{"id", "name", "text"};
+            String[] columns = new String[]{"id", "name", "body"};
             Cursor cursor = db.query(DB_TABLE_NOTES, columns, "id=?", args, null, null, null, null);
             cursor.moveToFirst();
             note= new NotesModel(cursor.getInt(0), cursor.getString(1), cursor.getString(2));
@@ -203,7 +203,7 @@ public class DatabaseManager
     public ArrayList<NotesModel> getAllNotes()
     {
         ArrayList<NotesModel> notes = new ArrayList<>();
-        String[] columns = new String[]{"id", "name", "text"};
+        String[] columns = new String[]{"id", "name", "body"};
         try {
             Cursor cursor = db.query(DB_TABLE_NOTES, columns, null, null, null, null, null);
             cursor.moveToFirst();

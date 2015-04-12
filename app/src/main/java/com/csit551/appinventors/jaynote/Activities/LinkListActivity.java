@@ -1,5 +1,6 @@
 package com.csit551.appinventors.jaynote.Activities;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -21,17 +22,6 @@ public class LinkListActivity extends ActionBarActivity
         linkList = (ListView) findViewById(R.id.link_list);
     }
 
-
-
-
-
-
-
-
-
-
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -46,9 +36,25 @@ public class LinkListActivity extends ActionBarActivity
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if(id == R.id.action_home)
+        {
+            Intent intent = new Intent(LinkListActivity.this.getApplicationContext(), MainActivity.class);
+            startActivity(intent);
+            finish();
+        }
+
+        if(id == R.id.action_tips)
+        {
+            Intent intent = new Intent(LinkListActivity.this.getApplicationContext(), LinkListActivity.class);
+            startActivity(intent);
+            finish();
+        }
+
+        if(id == R.id.action_notes)
+        {
+            Intent intent = new Intent(LinkListActivity.this.getApplicationContext(), TipActivity.class);
+            startActivity(intent);
+            finish();
         }
 
         return super.onOptionsItemSelected(item);
