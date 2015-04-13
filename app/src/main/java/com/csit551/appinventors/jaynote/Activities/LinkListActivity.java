@@ -43,12 +43,12 @@ public class LinkListActivity extends ActionBarActivity
             finish();
         }
 
-        if(id == R.id.action_tips)
+        /*if(id == R.id.action_tips)
         {
             Intent intent = new Intent(LinkListActivity.this.getApplicationContext(), LinkListActivity.class);
             startActivity(intent);
             finish();
-        }
+        }*/
 
         if(id == R.id.action_notes)
         {

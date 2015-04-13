@@ -79,9 +79,17 @@ public class NoteActivity extends Activity
                 String name = noteName.getText().toString();
                 String body = noteBody.getText().toString();
                 db.insertNote(name, body);
-                Intent newIntent = new Intent(NoteActivity.this.getApplicationContext(), NoteListActivity.class);
-                startActivity(newIntent);
-                finish();
+                if(intent.getIntExtra("code", 0) == 1)
+                {
+                    Intent newIntent = new Intent(context, NoteListActivity.class);
+                    startActivity(newIntent);
+                    finish();
+                }
+                else if(intent.getIntExtra("code", 0) == 2)
+                {
+                    setResult(RESULT_OK);
+                    finish();
+                }
             }
         });
     }
@@ -122,7 +130,8 @@ public class NoteActivity extends Activity
                 note.setName(noteName.getText().toString());
                 note.setBody(noteBody.getText().toString());
                 db.updateNote(note);
-                setResult(RESULT_OK);
+                Intent newIntent = new Intent(context, NoteListActivity.class);
+                startActivity(newIntent);
                 finish();
             }
         });
@@ -131,7 +140,8 @@ public class NoteActivity extends Activity
             public void onClick(View v)
             {
                 db.deleteNote(note);
-                setResult(RESULT_OK);
+                Intent newIntent = new Intent(context, NoteListActivity.class);
+                startActivity(newIntent);
                 finish();
             }
         });

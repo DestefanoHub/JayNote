@@ -153,7 +153,8 @@ public class SightingActivity extends Activity
                 sighting.setLocation(sightingLocation.getText().toString());
                 sighting.setMisc(sightingMisc.getText().toString());
                 db.updateSighting(sighting);
-                setResult(RESULT_OK);
+                Intent newIntent = new Intent(context, MainActivity.class);
+                startActivity(newIntent);
                 finish();
             }
         });
@@ -162,7 +163,8 @@ public class SightingActivity extends Activity
             public void onClick(View v)
             {
                 db.deleteSighting(sighting);
-                setResult(RESULT_OK);
+                Intent newIntent = new Intent(context, MainActivity.class);
+                startActivity(newIntent);
                 finish();
             }
         });

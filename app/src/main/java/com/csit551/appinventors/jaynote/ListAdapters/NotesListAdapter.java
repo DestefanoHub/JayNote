@@ -47,7 +47,7 @@ public class NotesListAdapter extends BaseAdapter
         if (view == null)
         {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            view = inflater.inflate(R.layout.activity_note_list, null);
+            view = inflater.inflate(R.layout.note_adapter, null);
         }
 
         nameText = (TextView) view.findViewById(R.id.name);
