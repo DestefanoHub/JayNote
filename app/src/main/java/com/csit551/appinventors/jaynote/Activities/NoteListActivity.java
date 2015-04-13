@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.csit551.appinventors.jaynote.Database.DatabaseManager;
@@ -22,7 +23,9 @@ public class NoteListActivity extends ActionBarActivity
 {
     private DatabaseManager db;
     private Context context;
+    private Intent intent;
     private ListView notesList;
+    private Button newNote;
     private ArrayList<NotesModel> notes;
     private static final int REQUEST_CODE_NOTE = 2;
 
@@ -49,6 +52,41 @@ public class NoteListActivity extends ActionBarActivity
                 startActivityForResult(intent, REQUEST_CODE_NOTE);
             }
         });
+
+        newNote = (Button) findViewById(R.id.note_button);
+        newNote.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, NoteActivity.class);
+                //create a new note
+                intent.putExtra("create_view_edit", 0);
+                intent.putExtra("code", REQUEST_CODE_NOTE);
+                startActivityForResult(intent, REQUEST_CODE_NOTE);
+            }
+        });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent intent)
+    {
+        if(resultCode == RESULT_OK && requestCode == REQUEST_CODE_NOTE)
+        {
+            notesList = (ListView) findViewById(R.id.note_list);
+            notes = db.getAllNotes();
+            notesList.setAdapter(new NotesListAdapter(notes, this));
+            //Set listener to view existing notes
+            notesList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Intent intent = new Intent(context, NoteActivity.class);
+                    //view an existing note
+                    intent.putExtra("create_view_edit", 1);
+                    NotesModel note = (NotesModel) notesList.getAdapter().getItem(position);
+                    intent.putExtra("note_id", note.getId());
+                    startActivityForResult(intent, REQUEST_CODE_NOTE);
+                }
+            });
+        }
     }
 
     @Override
@@ -72,7 +110,7 @@ public class NoteListActivity extends ActionBarActivity
             finish();
         }
 
-        if(id == R.id.action_links)
+        /*if(id == R.id.action_links)
         {
             Intent intent = new Intent(NoteListActivity.this.getApplicationContext(), LinkListActivity.class);
             startActivity(intent);
@@ -84,7 +122,7 @@ public class NoteListActivity extends ActionBarActivity
             Intent intent = new Intent(NoteListActivity.this.getApplicationContext(), TipActivity.class);
             startActivity(intent);
             finish();
-        }
+        }*/
 
         return super.onOptionsItemSelected(item);
     }

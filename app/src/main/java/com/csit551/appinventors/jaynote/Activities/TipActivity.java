@@ -39,12 +39,12 @@ public class TipActivity extends ActionBarActivity
             finish();
         }
 
-        if(id == R.id.action_links)
+        /*if(id == R.id.action_links)
         {
             Intent intent = new Intent(TipActivity.this.getApplicationContext(), LinkListActivity.class);
             startActivity(intent);
             finish();
-        }
+        }*/
 
         if(id == R.id.action_notes)
         {

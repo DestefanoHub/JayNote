@@ -69,6 +69,7 @@ public class MainActivity extends ActionBarActivity
                 Intent intent = new Intent(context, NoteActivity.class);
                 //create a new note
                 intent.putExtra("create_view_edit", 0);
+                intent.putExtra("code", REQUEST_CODE_MAIN);
                 startActivity(intent);
                 finish();
             }
@@ -118,7 +119,7 @@ public class MainActivity extends ActionBarActivity
             finish();
         }
 
-        if(id == R.id.action_links)
+        /*if(id == R.id.action_links)
         {
             Intent intent = new Intent(MainActivity.this.getApplicationContext(), LinkListActivity.class);
             startActivity(intent);
@@ -130,7 +131,7 @@ public class MainActivity extends ActionBarActivity
             Intent intent = new Intent(MainActivity.this.getApplicationContext(), TipActivity.class);
             startActivity(intent);
             finish();
-        }
+        }*/
 
         return super.onOptionsItemSelected(item);
     }
