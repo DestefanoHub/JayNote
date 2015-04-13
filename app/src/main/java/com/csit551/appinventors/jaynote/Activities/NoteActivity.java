@@ -49,7 +49,7 @@ public class NoteActivity extends Activity
             }
             else if(val == 1)
             {
-                int id = intent.getIntExtra("note_id", 0);
+                int id = intent.getIntExtra("note_id", -1);
                 if(id > 0)
                 {
                     note = db.getNoteById(id);
@@ -58,7 +58,7 @@ public class NoteActivity extends Activity
             }
             else if(val == 2)
             {
-                int id = intent.getIntExtra("note_id", 0);
+                int id = intent.getIntExtra("note_id", -1);
                 if(id > 0)
                 {
                     note = db.getNoteById(id);

@@ -90,7 +90,7 @@ public class MainActivity extends ActionBarActivity
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     Intent intent = new Intent(context, SightingActivity.class);
                     //view/edit an existing sighting
-                    intent.putExtra("create_or_update", 1);
+                    intent.putExtra("create_view_edit", 1);
                     SightingsModel sighting = (SightingsModel) sightingsList.getAdapter().getItem(position);
                     intent.putExtra("sighting_id", sighting.getId());
                     startActivityForResult(intent, REQUEST_CODE_MAIN);

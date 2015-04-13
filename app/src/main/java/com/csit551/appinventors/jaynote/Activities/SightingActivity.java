@@ -57,7 +57,7 @@ public class SightingActivity extends Activity
             }
             else if(val == 1)
             {
-                int id = intent.getIntExtra("sighting_id", 0);
+                int id = intent.getIntExtra("sighting_id", -1);
                 if(id > 0)
                 {
                     sighting = db.getSightingById(id);
@@ -66,7 +66,7 @@ public class SightingActivity extends Activity
             }
             else if(val == 2)
             {
-                int id = intent.getIntExtra("sighting_id", 0);
+                int id = intent.getIntExtra("sighting_id", -1);
                 if(id > 0)
                 {
                     sighting = db.getSightingById(id);
