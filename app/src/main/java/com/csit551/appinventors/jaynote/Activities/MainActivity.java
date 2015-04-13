@@ -47,7 +47,8 @@ public class MainActivity extends ActionBarActivity
                 intent.putExtra("create_view_edit", 1);
                 SightingsModel sighting = (SightingsModel) sightingsList.getAdapter().getItem(position);
                 intent.putExtra("sighting_id", sighting.getId());
-                startActivityForResult(intent, REQUEST_CODE_MAIN);
+                startActivity(intent);
+                //finish();
             }
         });
 
@@ -58,8 +59,7 @@ public class MainActivity extends ActionBarActivity
                 Intent intent = new Intent(context, SightingActivity.class);
                 //create a new sighting
                 intent.putExtra("create_view_edit", 0);
-                startActivity(intent);
-                finish();
+                startActivityForResult(intent, REQUEST_CODE_MAIN);
             }
         });
 

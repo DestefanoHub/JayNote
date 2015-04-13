@@ -129,6 +129,7 @@ public class SightingActivity extends Activity
                 newIntent.putExtra("create_view_edit", 2);
                 newIntent.putExtra("sighting_id", sighting.getId());
                 startActivity(newIntent);
+                finish();
             }
         });
     }

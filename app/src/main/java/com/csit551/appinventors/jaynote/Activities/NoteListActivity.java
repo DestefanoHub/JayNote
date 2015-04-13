@@ -50,6 +50,7 @@ public class NoteListActivity extends ActionBarActivity
                 NotesModel note = (NotesModel) notesList.getAdapter().getItem(position);
                 intent.putExtra("note_id", note.getId());
                 startActivity(intent);
+                //finish();
             }
         });
 
