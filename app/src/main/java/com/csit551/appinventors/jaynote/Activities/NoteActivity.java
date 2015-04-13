@@ -114,6 +114,7 @@ public class NoteActivity extends Activity
                 newIntent.putExtra("create_view_edit", 2);
                 newIntent.putExtra("note_id", note.getId());
                 startActivity(newIntent);
+                finish();
             }
         });
     }

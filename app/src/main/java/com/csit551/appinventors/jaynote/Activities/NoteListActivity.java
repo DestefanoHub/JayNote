@@ -49,7 +49,7 @@ public class NoteListActivity extends ActionBarActivity
                 intent.putExtra("create_view_edit", 1);
                 NotesModel note = (NotesModel) notesList.getAdapter().getItem(position);
                 intent.putExtra("note_id", note.getId());
-                startActivityForResult(intent, REQUEST_CODE_NOTE);
+                startActivity(intent);
             }
         });
 

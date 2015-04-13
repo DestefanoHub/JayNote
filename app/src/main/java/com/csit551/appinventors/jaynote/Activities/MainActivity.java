@@ -58,7 +58,8 @@ public class MainActivity extends ActionBarActivity
                 Intent intent = new Intent(context, SightingActivity.class);
                 //create a new sighting
                 intent.putExtra("create_view_edit", 0);
-                startActivityForResult(intent, REQUEST_CODE_MAIN);
+                startActivity(intent);
+                finish();
             }
         });
 
