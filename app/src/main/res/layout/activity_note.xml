@@ -46,7 +46,8 @@
         android:id="@+id/save"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:text="Save"/>
+        android:background="@drawable/save_drawable"
+        android:text="@string/save"/>
 
     <Button
         android:layout_width="100dp"
@@ -54,7 +55,8 @@
         android:id="@+id/edit"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:text="Edit"/>
+        android:background="@drawable/save_drawable"
+        android:text="@string/edit"/>
 
     <Button
         android:layout_width="100dp"
@@ -62,6 +64,7 @@
         android:id="@+id/delete"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:text="Delete"/>
+        android:background="@drawable/delete_drawable"
+        android:text="@string/delete"/>
 
 </RelativeLayout>

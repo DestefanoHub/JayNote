@@ -110,6 +110,7 @@
     <string name="misc">Misc</string>
     <string name="insert_text_here">Insert Text Here:</string>
     <string name="save">Save</string>
+    <string name="edit">Edit</string>
     <string name="delete">Delete!</string>
     <string name="survivaltips">Survival Tips</string>
 </resources>
