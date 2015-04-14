@@ -2,41 +2,17 @@
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.csit551.appinventors.jaynote.Activities.NoteListActivity"
-    android:background="#B4FF00">
+    style="@style/background">
 
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/other_options_button"
-        android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/note_list"
-        android:src="@mipmap/smalljay"
-        android:background="@drawable/round_vague_drawable" />
 
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/note_list"
         android:choiceMode="singleChoice"
-        android:drawSelectorOnTop="false"
-        android:background="#0FAD00"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_below="@+id/other_options_button" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/title_activity_note_list"
-        android:id="@+id/notes_textview"
-        android:textSize="20dp"
-        android:textColor="#ff000000"
-        android:textStyle="bold"
-        android:layout_above="@+id/note_list"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_above="@+id/note_button" />
 
     <Button
         android:layout_width="wrap_content"
@@ -47,6 +23,8 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:clickable="true"
-        android:background="@drawable/round_vague_drawable" />
+        android:background="@drawable/round_vague_drawable"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

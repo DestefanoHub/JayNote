@@ -2,18 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#B4FF00"
+    style="@style/background"
     tools:context="com.csit551.appinventors.jaynote.Activities.NoteActivity">
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/other_options_button"
-        android:src="@mipmap/smalljay"
-        android:background="@drawable/round_vague_drawable"
-        android:layout_alignBottom="@+id/note_name_edit"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -22,13 +12,15 @@
         android:id="@+id/note_name_edit"
         android:textColor="#ff646464"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        style="@style/textcolors"/>
 
     <EditText
         android:id="@+id/note_content"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:hint="@string/insert_text_here"
+        style="@style/textcolors"
         android:gravity="top|left"
         android:inputType="textEmailAddress|textMultiLine"
         android:minLines="10"
@@ -36,7 +28,6 @@
         android:scrollbars="vertical"
         android:singleLine="false"
         android:layout_marginTop="40dp"
-        android:layout_below="@+id/other_options_button"
         android:layout_alignLeft="@+id/note_name_edit"
         android:layout_alignStart="@+id/note_name_edit" />
 
@@ -46,7 +37,7 @@
         android:id="@+id/save"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:background="@drawable/save_drawable"
+        android:background="@drawable/round_vague_drawable"
         android:text="@string/save"/>
 
     <Button
@@ -55,7 +46,7 @@
         android:id="@+id/edit"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:background="@drawable/save_drawable"
+        android:background="@drawable/round_vague_drawable"
         android:text="@string/edit"/>
 
     <Button

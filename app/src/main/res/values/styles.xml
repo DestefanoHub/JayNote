@@ -5,4 +5,17 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="background">
+        <item name="android:background">@mipmap/type2w</item>
+        <!--You can switch between gradients easily here. Just the last two characters of the reference
+        above. W is for width, h for height. The first two are direct references to the colors
+        of the Green Jay's feathers.-Cina-->
+    </style>
+
+
+    <style name="textcolors">
+        <item name="android:textColorHint">#FF272727</item>
+        <item name="android:textColor">#ff000000</item>
+    </style>
+
 </resources>

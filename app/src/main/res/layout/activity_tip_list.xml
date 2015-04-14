@@ -1,38 +1,28 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
-
-    android:background="#B4FF00"
+    style="@style/background"
     tools:context="com.csit551.appinventors.jaynote.Activities.TipActivity">
 
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/other_options_button"
-        android:src="@mipmap/smalljay"
-        android:background="@drawable/round_vague_drawable"
-        android:layout_alignBottom="@+id/note_name_edit"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
 
     <ExpandableListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/expandableListView"
         android:layout_alignParentLeft="true"
+        style="@style/textcolors"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/other_options_button" />
+        android:layout_below="@+id/textView13" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="placeholder"
+        android:text="@string/survivaltips"
         android:id="@+id/textView13"
         android:textSize="20dp"
         android:textColor="#ff000000"
         android:textStyle="bold"
-        android:layout_above="@+id/expandableListView"
         android:layout_alignLeft="@+id/expandableListView"
-        android:layout_alignStart="@+id/expandableListView" />
+        android:layout_alignStart="@+id/expandableListView"
+        android:layout_alignParentTop="true" />
 </RelativeLayout>

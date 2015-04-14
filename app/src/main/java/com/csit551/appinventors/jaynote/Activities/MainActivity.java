@@ -24,7 +24,7 @@ public class MainActivity extends ActionBarActivity
     private Context context;
     private ListView sightingsList;
     private Button newSighting;
-    private Button newNote;
+   /* private Button newNote;*/
     private ArrayList<SightingsModel> sightings;
     private static final int REQUEST_CODE_MAIN = 1;
     @Override
@@ -63,7 +63,7 @@ public class MainActivity extends ActionBarActivity
             }
         });
 
-        newNote = (Button) findViewById(R.id.note_button);
+/*        newNote = (Button) findViewById(R.id.note_button);
         newNote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,7 +74,7 @@ public class MainActivity extends ActionBarActivity
                 startActivity(intent);
                 finish();
             }
-        });
+        });*/
     }
 
     @Override
