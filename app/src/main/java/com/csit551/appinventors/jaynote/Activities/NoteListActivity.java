@@ -50,7 +50,6 @@ public class NoteListActivity extends ActionBarActivity
                 NotesModel note = (NotesModel) notesList.getAdapter().getItem(position);
                 intent.putExtra("note_id", note.getId());
                 startActivity(intent);
-                //finish();
             }
         });
 
@@ -61,7 +60,6 @@ public class NoteListActivity extends ActionBarActivity
                 Intent intent = new Intent(context, NoteActivity.class);
                 //create a new note
                 intent.putExtra("create_view_edit", 0);
-                intent.putExtra("code", REQUEST_CODE_NOTE);
                 startActivityForResult(intent, REQUEST_CODE_NOTE);
             }
         });
@@ -84,7 +82,7 @@ public class NoteListActivity extends ActionBarActivity
                     intent.putExtra("create_view_edit", 1);
                     NotesModel note = (NotesModel) notesList.getAdapter().getItem(position);
                     intent.putExtra("note_id", note.getId());
-                    startActivityForResult(intent, REQUEST_CODE_NOTE);
+                    startActivity(intent);
                 }
             });
         }

@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.csit551.appinventors.jaynote.Database.DatabaseManager;
 import com.csit551.appinventors.jaynote.Database.SightingsModel;
@@ -84,15 +85,21 @@ public class SightingActivity extends Activity
             @Override
             public void onClick(View v)
             {
-                String name = sightingName.getText().toString();
-                String size = sightingSize.getText().toString();
-                String type = sightingType.getText().toString();
-                String color = sightingColor.getText().toString();
-                String location = sightingLocation.getText().toString();
-                String misc = sightingMisc.getText().toString();
-                db.insertSighting(name, size, type, color, null, null, location, misc);
-                setResult(RESULT_OK);
-                finish();
+                if(!sightingName.getText().toString().equals("")) {
+                    String name = sightingName.getText().toString();
+                    String size = sightingSize.getText().toString();
+                    String type = sightingType.getText().toString();
+                    String color = sightingColor.getText().toString();
+                    String location = sightingLocation.getText().toString();
+                    String misc = sightingMisc.getText().toString();
+                    db.insertSighting(name, size, type, color, null, null, location, misc);
+                    setResult(RESULT_OK);
+                    finish();
+                }
+                else {
+                    Toast toast = Toast.makeText(context, "Please provide a name for the sighting!", Toast.LENGTH_SHORT);
+                    toast.show();
+                }
             }
         });
     }
@@ -147,16 +154,22 @@ public class SightingActivity extends Activity
             @Override
             public void onClick(View v)
             {
-                sighting.setName(sightingName.getText().toString());
-                sighting.setSize(sightingSize.getText().toString());
-                sighting.setType(sightingType.getText().toString());
-                sighting.setColor(sightingColor.getText().toString());
-                sighting.setLocation(sightingLocation.getText().toString());
-                sighting.setMisc(sightingMisc.getText().toString());
-                db.updateSighting(sighting);
-                Intent newIntent = new Intent(context, MainActivity.class);
-                startActivity(newIntent);
-                finish();
+                if(!sightingName.getText().toString().equals("")) {
+                    sighting.setName(sightingName.getText().toString());
+                    sighting.setSize(sightingSize.getText().toString());
+                    sighting.setType(sightingType.getText().toString());
+                    sighting.setColor(sightingColor.getText().toString());
+                    sighting.setLocation(sightingLocation.getText().toString());
+                    sighting.setMisc(sightingMisc.getText().toString());
+                    db.updateSighting(sighting);
+                    Intent newIntent = new Intent(context, MainActivity.class);
+                    startActivity(newIntent);
+                    finish();
+                }
+                else {
+                    Toast toast = Toast.makeText(context, "Please provide a name for the sighting!", Toast.LENGTH_SHORT);
+                    toast.show();
+                }
             }
         });
         delete.setOnClickListener(new View.OnClickListener() {

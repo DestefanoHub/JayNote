@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.csit551.appinventors.jaynote.Database.DatabaseManager;
 import com.csit551.appinventors.jaynote.Database.NotesModel;
@@ -76,19 +77,16 @@ public class NoteActivity extends Activity
             @Override
             public void onClick(View v)
             {
-                String name = noteName.getText().toString();
-                String body = noteBody.getText().toString();
-                db.insertNote(name, body);
-                if(intent.getIntExtra("code", 0) == 1)
-                {
-                    Intent newIntent = new Intent(context, NoteListActivity.class);
-                    startActivity(newIntent);
-                    finish();
-                }
-                else if(intent.getIntExtra("code", 0) == 2)
-                {
+                if(!noteName.getText().toString().equals("")) {
+                    String name = noteName.getText().toString();
+                    String body = noteBody.getText().toString();
+                    db.insertNote(name, body);
                     setResult(RESULT_OK);
                     finish();
+                }
+                else {
+                    Toast toast = Toast.makeText(context, "Please provide a name for the note!", Toast.LENGTH_SHORT);
+                    toast.show();
                 }
             }
         });
@@ -128,12 +126,18 @@ public class NoteActivity extends Activity
             @Override
             public void onClick(View v)
             {
-                note.setName(noteName.getText().toString());
-                note.setBody(noteBody.getText().toString());
-                db.updateNote(note);
-                Intent newIntent = new Intent(context, NoteListActivity.class);
-                startActivity(newIntent);
-                finish();
+                if(!noteName.getText().toString().equals("")) {
+                    note.setName(noteName.getText().toString());
+                    note.setBody(noteBody.getText().toString());
+                    db.updateNote(note);
+                    Intent newIntent = new Intent(context, NoteListActivity.class);
+                    startActivity(newIntent);
+                    finish();
+                }
+                else {
+                    Toast toast = Toast.makeText(context, "Please provide a name for the note!", Toast.LENGTH_SHORT);
+                    toast.show();
+                }
             }
         });
         delete.setOnClickListener(new View.OnClickListener() {
