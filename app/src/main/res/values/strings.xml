@@ -89,7 +89,7 @@
         <item>The basic treatment is oil of cloves on packing in the sore tooth to reduce the pain. </item>
     </string-array>
 
-    <string name="new_sighting">+New Sighting!</string>
+    <string name="new_sighting">New Sighting</string>
     <string name="your_sightings">Your Sightings</string>
     <string name="new_blanknote">+New Note</string>
     <string name="note_title_hint">Name of Note</string>
