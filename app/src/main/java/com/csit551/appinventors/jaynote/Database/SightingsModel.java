@@ -10,20 +10,22 @@ public class SightingsModel
     private String size;
     private String type;
     private String color;
-    private String date;
-    private String time;
+    private String dateTime;
+    private String audio;
+    private String image;
     private String location;
     private String misc;
 
-    public SightingsModel(int id, String name, String size, String type, String color, String date, String time, String location, String misc)
+    public SightingsModel(int id, String name, String size, String type, String color, String dateTime, String audio, String image, String location, String misc)
     {
         this.id = id;
         this.name = name;
         this.size = size;
         this.type = type;
         this.color = color;
-        this.date = date;
-        this.time = time;
+        this.dateTime = dateTime;
+        this.audio = audio;
+        this.image = image;
         this.location = location;
         this.misc = misc;
     }
@@ -78,24 +80,34 @@ public class SightingsModel
         this.color = color;
     }
 
-    public String getDate()
+    public String getDateTime()
     {
-        return this.date;
+        return this.dateTime;
     }
 
-    public void setDate(String date)
+    public void setDateTime(String dateTime)
     {
-        this.date = date;
+        this.dateTime = dateTime;
     }
 
-    public String getTime()
+    public String getAudio()
     {
-        return this.time;
+        return this.audio;
     }
 
-    public void setTime(String time)
+    public void setAudio(String audio)
     {
-        this.time = time;
+        this.audio = audio;
+    }
+
+    public String getImage()
+    {
+        return this.image;
+    }
+
+    public void setImage(String image)
+    {
+        this.image = image;
     }
 
     public String getLocation()

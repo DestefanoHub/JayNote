@@ -13,6 +13,9 @@ import com.csit551.appinventors.jaynote.Database.DatabaseManager;
 import com.csit551.appinventors.jaynote.Database.SightingsModel;
 import com.csit551.appinventors.jaynote.R;
 
+import java.util.Calendar;
+import java.util.Date;
+
 
 public class SightingActivity extends Activity
 {
@@ -27,6 +30,7 @@ public class SightingActivity extends Activity
     private EditText sightingSize;
     private EditText sightingType;
     private EditText sightingColor;
+    private EditText sightingDateTime;
     private EditText sightingLocation;
     private EditText sightingMisc;
 
@@ -42,6 +46,7 @@ public class SightingActivity extends Activity
         sightingSize = (EditText) findViewById(R.id.size_animal_input);
         sightingType = (EditText) findViewById(R.id.type_organism_input);
         sightingColor = (EditText) findViewById(R.id.color_input);
+        sightingDateTime = (EditText) findViewById(R.id.time_of_day_input);
         sightingLocation = (EditText) findViewById(R.id.location_input);
         sightingMisc = (EditText) findViewById(R.id.misc_input);
         save = (Button) findViewById(R.id.save_button);
@@ -81,6 +86,9 @@ public class SightingActivity extends Activity
     {
         edit.setVisibility(View.GONE);
         delete.setVisibility(View.GONE);
+        Calendar calendar = Calendar.getInstance();
+        Date now = calendar.getTime();
+        sightingDateTime.setText(now.toString());
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
@@ -90,9 +98,10 @@ public class SightingActivity extends Activity
                     String size = sightingSize.getText().toString();
                     String type = sightingType.getText().toString();
                     String color = sightingColor.getText().toString();
+                    String dateTime = sightingDateTime.getText().toString();
                     String location = sightingLocation.getText().toString();
                     String misc = sightingMisc.getText().toString();
-                    db.insertSighting(name, size, type, color, null, null, location, misc);
+                    db.insertSighting(name, size, type, color, dateTime, null, null, location, misc);
                     setResult(RESULT_OK);
                     finish();
                 }
@@ -112,6 +121,7 @@ public class SightingActivity extends Activity
         sightingSize.setText(sighting.getSize());
         sightingType.setText(sighting.getType());
         sightingColor.setText(sighting.getColor());
+        sightingDateTime.setText(sighting.getDateTime());
         sightingLocation.setText(sighting.getLocation());
         sightingMisc.setText(sighting.getMisc());
         //make the edittexts uneditable
@@ -123,6 +133,8 @@ public class SightingActivity extends Activity
         sightingType.setFocusable(false);
         sightingColor.setEnabled(false);
         sightingColor.setFocusable(false);
+        sightingDateTime.setEnabled(false);
+        sightingDateTime.setFocusable(false);
         sightingLocation.setEnabled(false);
         sightingLocation.setFocusable(false);
         sightingMisc.setEnabled(false);
@@ -148,6 +160,7 @@ public class SightingActivity extends Activity
         sightingSize.setText(sighting.getSize());
         sightingType.setText(sighting.getType());
         sightingColor.setText(sighting.getColor());
+        sightingDateTime.setText(sighting.getDateTime());
         sightingLocation.setText(sighting.getLocation());
         sightingMisc.setText(sighting.getMisc());
         save.setOnClickListener(new View.OnClickListener() {
@@ -159,6 +172,7 @@ public class SightingActivity extends Activity
                     sighting.setSize(sightingSize.getText().toString());
                     sighting.setType(sightingType.getText().toString());
                     sighting.setColor(sightingColor.getText().toString());
+                    sighting.setDateTime(sightingDateTime.getText().toString());
                     sighting.setLocation(sightingLocation.getText().toString());
                     sighting.setMisc(sightingMisc.getText().toString());
                     db.updateSighting(sighting);
