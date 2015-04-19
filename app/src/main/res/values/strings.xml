@@ -89,7 +89,7 @@
         <item>The basic treatment is oil of cloves on packing in the sore tooth to reduce the pain. </item>
     </string-array>
 
-    <string name="new_sighting">+New Sighting!</string>
+    <string name="new_sighting">New Sighting</string>
     <string name="your_sightings">Your Sightings</string>
     <string name="new_blanknote">+New Note</string>
     <string name="note_title_hint">Name of Note</string>
@@ -99,7 +99,7 @@
     <string name="estimated_weight">Estimated Weight</string>
     <string name="weight_hint">Heavier than, heavier than, etc.</string>
     <string name="type_of_organism">Type of Organism</string>
-    <string name="type_organism_hint">A reptile, a bird, a zebra,etc.</string>
+    <string name="type_organism_hint">A reptile, a bird, a zebra, etc.</string>
     <string name="color_organism">Colors</string>
     <string name="upload_sound">Upload sound</string>
     <string name="organism_photo">Photo</string>
