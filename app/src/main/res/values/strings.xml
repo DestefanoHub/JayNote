@@ -91,7 +91,7 @@
 
     <string name="new_sighting">New Sighting</string>
     <string name="your_sightings">Your Sightings</string>
-    <string name="new_blanknote">+New Note</string>
+    <string name="new_blanknote">New Note</string>
     <string name="note_title_hint">Name of Note</string>
     <string name="sighting_title">Title</string>
     <string name="size_animal">Size of Organism</string>

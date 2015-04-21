@@ -29,7 +29,8 @@
         android:singleLine="false"
         android:layout_marginTop="40dp"
         android:layout_alignLeft="@+id/note_name_edit"
-        android:layout_alignStart="@+id/note_name_edit" />
+        android:layout_alignStart="@+id/note_name_edit"
+        android:layout_above="@+id/save" />
 
     <Button
         android:layout_width="100dp"
