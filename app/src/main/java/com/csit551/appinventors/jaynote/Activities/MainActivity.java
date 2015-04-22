@@ -31,7 +31,6 @@ public class MainActivity extends ActionBarActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         db = new DatabaseManager(MainActivity.this.getApplicationContext());
         context = this.getBaseContext();
 

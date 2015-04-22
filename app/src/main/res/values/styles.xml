@@ -2,6 +2,7 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+
     </style>
 
     <style name="background">
@@ -11,10 +12,33 @@
         of the Green Jay's feathers.-Cina-->
     </style>
 
-
     <style name="textcolors">
         <item name="android:textColorHint">#FF272727</item>
-        <item name="android:textColor">#ff000000</item>
+        <item name="android:textColor">#FFFFFF</item>
     </style>
 
 </resources>
+
+
+
+
+
+
+<!--Note:
+    android:Theme.Holo.Light.DarkActionBar
+    vs
+    Theme.AppCompat.Light.DarkActionBar
+    also extending ActionBarActivity, the sample does not and neither do many
+
+
+    Holo
+    if holo && extend actionbar > crash
+
+    if holo && extend action > bar with no menu options
+    However, this setup in ActionBarApp sample has options
+    Doesn't have any action bar statements
+
+
+    Theme.AppCompat.Light.DarkActionBar
+    if > no extends actionbaractivity > no action bar
+-->

@@ -11,6 +11,7 @@
         android:choiceMode="singleChoice"
         android:drawSelectorOnTop="false"
         android:layout_below="@+id/textView"
+        android:textColor="#FFFFFF"
         android:layout_alignParentBottom="true" />
 
     <TextView
@@ -18,8 +19,8 @@
         android:layout_height="wrap_content"
         android:text="@string/links"
         android:id="@+id/textView"
-        android:textSize="20dp"
-        android:textColor="#ff000000"
+        android:textSize="20sp"
+        android:textColor="#FFFFFF"
         android:textStyle="bold"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"

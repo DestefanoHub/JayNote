@@ -114,4 +114,8 @@
     <string name="delete">Delete!</string>
     <string name="survivaltips">Survival Tips</string>
     <string name="links">Survival Links</string>
+    <string name="menulinks">Links</string>
+    <string name="menuhome">Home</string>
+    <string name="menutips">Tips</string>
+    <string name="menunotes">Notes</string>
 </resources>

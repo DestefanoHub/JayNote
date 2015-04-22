@@ -14,10 +14,7 @@
     <GridLayout
         android:layout_width="fill_parent"
         android:layout_height="match_parent"
-
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+       >
 
 
         <TextView
@@ -252,7 +249,9 @@
             android:clickable="true"
             android:background="@drawable/round_vague_drawable"
             android:layout_row="15"
+            android:textStyle="bold"
             android:layout_column="0"
+            android:textColor="#FFFFFF"
             android:layout_columnSpan="6" />
 
         <Button
@@ -264,6 +263,8 @@
             android:background="@drawable/round_vague_drawable"
             android:layout_row="16"
             android:layout_column="0"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
             android:layout_columnSpan="6" />
 
         <Button
@@ -275,6 +276,8 @@
             android:background="@drawable/delete_drawable"
             android:layout_row="17"
             android:layout_column="0"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
             android:layout_columnSpan="6" />
 
 
