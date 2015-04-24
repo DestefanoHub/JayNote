@@ -7,13 +7,11 @@
 
     <style name="background">
         <item name="android:background">@mipmap/type2h</item>
-        <!--You can switch between gradients easily here. Just the last two characters of the reference
-        above. W is for width, h for height. The first two are direct references to the colors
-        of the Green Jay's feathers.-Cina-->
+
     </style>
 
     <style name="textcolors">
-        <item name="android:textColorHint">#FF272727</item>
+        <item name="android:textColorHint">#CFCFCF</item>
         <item name="android:textColor">#FFFFFF</item>
     </style>
 
@@ -24,7 +22,11 @@
 
 
 
-<!--Note:
+    <!--You can switch between gradients easily here. Just the last two characters of the reference
+    above. W is for width, h for height. The first two are direct references to the colors
+    of the Green Jay's feathers.-Cina-->
+
+<!--Bug:
     android:Theme.Holo.Light.DarkActionBar
     vs
     Theme.AppCompat.Light.DarkActionBar

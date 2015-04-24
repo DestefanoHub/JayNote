@@ -2,13 +2,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.csit551.appinventors.jaynote" >
 
-
+    <!--<uses-sdk
+            android:minSdkVersion="3"
+            android:targetSdkVersion="19" />-->
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme"
+        >
         <activity
             android:name=".Activities.MainActivity"
             android:label="@string/app_name" >
@@ -24,6 +27,7 @@
         </activity>
         <activity
             android:name=".Activities.SightingActivity"
+            android:windowSoftInputMode="adjustNothing"
             android:label="@string/title_activity_sighting" >
         </activity>
         <activity
