@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,6 +25,7 @@ public class MainActivity extends ActionBarActivity
     private Context context;
     private ListView sightingsList;
     private Button newSighting;
+    private Toolbar toolbar;
    /* private Button newNote;*/
     private ArrayList<SightingsModel> sightings;
     private static final int REQUEST_CODE_MAIN = 1;
@@ -31,6 +33,13 @@ public class MainActivity extends ActionBarActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        if (toolbar != null) {
+            setSupportActionBar(toolbar);
+            toolbar.setLogo(R.drawable.ic_launcher);
+        }
+        /*Toolbar is needed for lolipop sdk and not actionbar*/
+
         db = new DatabaseManager(MainActivity.this.getApplicationContext());
         context = this.getBaseContext();
 
@@ -119,19 +128,19 @@ public class MainActivity extends ActionBarActivity
             finish();
         }
 
-        /*if(id == R.id.action_links)
+/*        if(id == R.id.action_links)
         {
             Intent intent = new Intent(MainActivity.this.getApplicationContext(), LinkListActivity.class);
             startActivity(intent);
             finish();
-        }
+        }*/
 
         if(id == R.id.action_tips)
         {
             Intent intent = new Intent(MainActivity.this.getApplicationContext(), TipActivity.class);
             startActivity(intent);
             finish();
-        }*/
+        }
 
         return super.onOptionsItemSelected(item);
     }

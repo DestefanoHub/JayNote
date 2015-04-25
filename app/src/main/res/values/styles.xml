@@ -1,8 +1,14 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+<!--
+        <item name="colorPrimary">@</item>
+-->
+        <item name="colorPrimaryDark">#000000</item>
+        <item name="colorAccent">#CFCFCF</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
     </style>
 
     <style name="background">
@@ -25,22 +31,3 @@
     <!--You can switch between gradients easily here. Just the last two characters of the reference
     above. W is for width, h for height. The first two are direct references to the colors
     of the Green Jay's feathers.-Cina-->
-
-<!--Bug:
-    android:Theme.Holo.Light.DarkActionBar
-    vs
-    Theme.AppCompat.Light.DarkActionBar
-    also extending ActionBarActivity, the sample does not and neither do many
-
-
-    Holo
-    if holo && extend actionbar > crash
-
-    if holo && extend action > bar with no menu options
-    However, this setup in ActionBarApp sample has options
-    Doesn't have any action bar statements
-
-
-    Theme.AppCompat.Light.DarkActionBar
-    if > no extends actionbaractivity > no action bar
--->

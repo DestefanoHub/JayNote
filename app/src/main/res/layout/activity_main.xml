@@ -1,8 +1,18 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     style="@style/background">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#000000"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        />
 
     <ListView
         android:id="@+id/sighting_list"
@@ -11,7 +21,8 @@
         android:layout_above="@+id/sighting_button"
         android:layout_alignParentRight="true"
         android:textColor="#FFFFFF"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/toolbar" />
 
     <Button
         android:layout_width="fill_parent"
@@ -26,7 +37,8 @@
         android:background="@drawable/round_vague_drawable"
         android:singleLine="false"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:textStyle="bold" />
 
 
     <!--note that the button colors match the icon, ain't that sweet. -Cina-->
