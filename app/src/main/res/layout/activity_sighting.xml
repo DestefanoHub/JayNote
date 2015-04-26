@@ -9,7 +9,8 @@
 
     <ScrollView
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        android:layout_height="fill_parent"
+       >
 
     <GridLayout
         android:layout_width="fill_parent"
@@ -260,8 +261,8 @@
         <!--android:layout_below="@+id/scrollsighting"-->
         <Space
             android:layout_width="1dp"
-            android:layout_height="150dp"/>
-
+            android:layout_height="300dp"/>
+        <!--keyboard ate up some of the editview at the bottom without this-->
 
     </GridLayout>
     </ScrollView>

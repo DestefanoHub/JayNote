@@ -9,6 +9,7 @@
         <item name="colorAccent">#CFCFCF</item>
         <item name="android:windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
+        <item name="android:textColor">#FFFFFF</item>
     </style>
 
     <style name="background">

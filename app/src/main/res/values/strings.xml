@@ -1,12 +1,12 @@
 <resources>
     <string name="app_name">Jay Note</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_tip">TipActivity</string>
-    <string name="title_activity_sighting">SightingActivity</string>
-    <string name="title_activity_note">NoteActivity</string>
-    <string name="title_activity_links">LinksActivity</string>
+    <string name="title_activity_tip">Survival Tips</string>
+    <string name="title_activity_sighting">Your Sighting</string>
+    <string name="title_activity_note">Your Note</string>
+    <string name="title_activity_links">Links for Research</string>
     <string name="title_activity_note_list">Field Notes</string>
-    <string name="title_activity_sighting_list">SightingListActivity</string>
+    <string name="title_activity_sighting_list">Sightings</string>
 
     <string-array name="links">
         <item>http://ees.elsevier.com/wemj/</item>
@@ -97,11 +97,11 @@
     <string name="size_animal"><u>Size of Organism</u></string>
     <string name="size_hint">Bigger then, smaller then</string>
     <string name="estimated_weight"><u>Estimated Weight</u></string>
-    <string name="weight_hint">Heavier than, heavier than, etc.</string>
+    <string name="weight_hint">Heavier than, lighter then, etc.</string>
     <string name="type_of_organism"><u>Type of Organism</u></string>
     <string name="type_organism_hint">A reptile, a bird, a zebra, etc.</string>
     <string name="color_organism"><u>Colors</u></string>
-    <string name="upload_sound"><u>Upload sound</u></string>
+    <string name="upload_sound"><u>Upload Sound</u></string>
     <string name="organism_photo"><u>Photo</u></string>
     <string name="time_of_day"><u>Time of Day</u></string>
     <string name="time_hint">Afternoon, 3:45</string>

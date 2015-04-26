@@ -14,14 +14,18 @@
         app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         />
 
-        <ListView android:id="@+id/fruits_list"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:entries="@array/fire"
-            android:drawSelectorOnTop="false"
-            android:layout_below="@+id/toolbar" />
-
-
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:id="@+id/fireText"
+        android:layout_below="@+id/toolbar"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 
 </RelativeLayout>

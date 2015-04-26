@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Jay Nota</string>
+    <string name="color_organism"><u>Colores</u></string>
+    <string name="date"><u>Fecha</u></string>
+    <string name="delete">Eliminar</string>
+    <string name="edit">Editar</string>
+    <string name="note_title_hint">Nombre de Consejo</string>
+    <string name="organism_photo"><u>Foto</u></string>
+    <string name="survivaltips">Consejos de Supervivencia</string>
+    <string name="action_settings">Ajustes</string>
+    <string name="estimated_weight"><u>Peso Estimado</u></string>
+    <string name="insert_text_here">Insertar Texto Aquí</string>
+    <string name="links">Enlaces</string>
+    <string name="location"><u>Ubicación</u></string>
+    <string name="menuhome">Casa</string>
+    <string name="menulinks">Enlaces</string>
+    <string name="menunotes">Notas</string>
+    <string name="menutips">Consejos</string>
+    <string name="misc"><u>Misceláneo</u></string>
+    <string name="new_blanknote">Nueva Nota</string>
+    <string name="new_sighting">Nueva Avistamiento</string>
+    <string name="save">Guardar</string>
+    <string name="sighting_title"><u>Título</u></string>
+    <string name="size_animal"><u>Tamaño del Organismo</u></string>
+    <string name="size_hint">Más grande, entonces , más pequeño que</string>
+    <string name="time_hint">La tarde, 3:45</string>
+    <string name="time_of_day"><u>Hora del Día</u></string>
+    <string name="title_activity_links">Enlaces para la Investigación</string>
+    <string name="title_activity_note">Tu Nota</string>
+    <string name="title_activity_note_list">Notas de Campo</string>
+    <string name="title_activity_sighting">Tu Avistamiento </string>
+    <string name="title_activity_sighting_list">Avistamientos</string>
+    <string name="title_activity_tip">Consejos de Supervivencia</string>
+    <string name="type_of_organism"><u>Tipo de Organismo</u></string>
+    <string name="type_organism_hint">Un reptil, un pájaro, una cebra, etc.</string>
+    <string name="upload_sound"><u>Subir Sonido</u></string>
+    <string name="weight_hint">Más pesado que, más ligero entonces, etc</string>
+    <string name="your_sightings">Tus Avistamientos</string>
+</resources>
