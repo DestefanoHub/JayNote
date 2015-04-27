@@ -1,21 +1,34 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+<!--
+        <item name="colorPrimary">@</item>
+-->
+        <item name="colorPrimaryDark">#000000</item>
+        <item name="colorAccent">#CFCFCF</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:textColor">#FFFFFF</item>
     </style>
 
     <style name="background">
         <item name="android:background">@mipmap/type2h</item>
-        <!--You can switch between gradients easily here. Just the last two characters of the reference
-        above. W is for width, h for height. The first two are direct references to the colors
-        of the Green Jay's feathers.-Cina-->
+
     </style>
 
-
     <style name="textcolors">
-        <item name="android:textColorHint">#FF272727</item>
-        <item name="android:textColor">#ff000000</item>
+        <item name="android:textColorHint">#CFCFCF</item>
+        <item name="android:textColor">#FFFFFF</item>
     </style>
 
 </resources>
+
+
+
+
+
+
+    <!--You can switch between gradients easily here. Just the last two characters of the reference
+    above. W is for width, h for height. The first two are direct references to the colors
+    of the Green Jay's feathers.-Cina-->

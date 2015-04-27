@@ -24,6 +24,7 @@ public class MainActivity extends ActionBarActivity
     private Context context;
     private ListView sightingsList;
     private Button newSighting;
+   /* private Button newNote;*/
     private ArrayList<SightingsModel> sightings;
     private static final int REQUEST_CODE_MAIN = 1;
     @Override
@@ -47,6 +48,7 @@ public class MainActivity extends ActionBarActivity
                 SightingsModel sighting = (SightingsModel) sightingsList.getAdapter().getItem(position);
                 intent.putExtra("sighting_id", sighting.getId());
                 startActivity(intent);
+                //finish();
             }
         });
 
@@ -60,6 +62,19 @@ public class MainActivity extends ActionBarActivity
                 startActivityForResult(intent, REQUEST_CODE_MAIN);
             }
         });
+
+/*        newNote = (Button) findViewById(R.id.note_button);
+        newNote.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, NoteActivity.class);
+                //create a new note
+                intent.putExtra("create_view_edit", 0);
+                intent.putExtra("code", REQUEST_CODE_MAIN);
+                startActivity(intent);
+                finish();
+            }
+        });*/
     }
 
     @Override
@@ -78,7 +93,7 @@ public class MainActivity extends ActionBarActivity
                     intent.putExtra("create_view_edit", 1);
                     SightingsModel sighting = (SightingsModel) sightingsList.getAdapter().getItem(position);
                     intent.putExtra("sighting_id", sighting.getId());
-                    startActivity(intent);
+                    startActivityForResult(intent, REQUEST_CODE_MAIN);
                 }
             });
         }

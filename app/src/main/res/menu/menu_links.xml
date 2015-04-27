@@ -2,22 +2,27 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.csit551.appinventors.jaynote.Activities.LinkListActivity">
+    <item
+        android:id="@+id/action_settings"
+        android:title="@string/action_settings"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
 
     <item
         android:id="@+id/action_home"
         android:title="Home"
         android:orderInCategory="101"
-        app:showAsAction="never" />
+        app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/action_tips"
         android:title="Tips"
         android:orderInCategory="102"
-        app:showAsAction="never" />
+        app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/action_notes"
         android:title="Notes"
         android:orderInCategory="103"
-        app:showAsAction="never" />
+        app:showAsAction="ifRoom" />
 </menu>
