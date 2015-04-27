@@ -1,12 +1,12 @@
 <resources>
     <string name="app_name">Jay Note</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_tip">TipActivity</string>
-    <string name="title_activity_sighting">SightingActivity</string>
-    <string name="title_activity_note">NoteActivity</string>
-    <string name="title_activity_links">LinksActivity</string>
+    <string name="title_activity_tip">Survival Tips</string>
+    <string name="title_activity_sighting">Your Sighting</string>
+    <string name="title_activity_note">Your Note</string>
+    <string name="title_activity_links">Links for Research</string>
     <string name="title_activity_note_list">Field Notes</string>
-    <string name="title_activity_sighting_list">SightingListActivity</string>
+    <string name="title_activity_sighting_list">Sightings</string>
 
     <string-array name="links">
         <item>http://ees.elsevier.com/wemj/</item>
@@ -89,29 +89,33 @@
         <item>The basic treatment is oil of cloves on packing in the sore tooth to reduce the pain. </item>
     </string-array>
 
-    <string name="new_sighting">+New Sighting!</string>
+    <string name="new_sighting">New Sighting</string>
     <string name="your_sightings">Your Sightings</string>
-    <string name="new_blanknote">+New Note</string>
+    <string name="new_blanknote">New Note</string>
     <string name="note_title_hint">Name of Note</string>
-    <string name="sighting_title">Title</string>
-    <string name="size_animal">Size of Organism</string>
+    <string name="sighting_title"><u>Title</u></string>
+    <string name="size_animal"><u>Size of Organism</u></string>
     <string name="size_hint">Bigger then, smaller then</string>
-    <string name="estimated_weight">Estimated Weight</string>
-    <string name="weight_hint">Heavier than, heavier than, etc.</string>
-    <string name="type_of_organism">Type of Organism</string>
-    <string name="type_organism_hint">A reptile, a bird, a zebra,etc.</string>
-    <string name="color_organism">Colors</string>
-    <string name="upload_sound">Upload sound</string>
-    <string name="organism_photo">Photo</string>
-    <string name="time_of_day">Time of Day</string>
+    <string name="estimated_weight"><u>Estimated Weight</u></string>
+    <string name="weight_hint">Heavier than, lighter then, etc.</string>
+    <string name="type_of_organism"><u>Type of Organism</u></string>
+    <string name="type_organism_hint">A reptile, a bird, a zebra, etc.</string>
+    <string name="color_organism"><u>Colors</u></string>
+    <string name="upload_sound"><u>Upload Sound</u></string>
+    <string name="organism_photo"><u>Photo</u></string>
+    <string name="time_of_day"><u>Time of Day</u></string>
     <string name="time_hint">Afternoon, 3:45</string>
-    <string name="date">Date</string>
-    <string name="location">Location</string>
-    <string name="misc">Misc</string>
-    <string name="insert_text_here">Insert Text Here:</string>
+    <string name="date"><u>Date</u></string>
+    <string name="location"><u>Location</u></string>
+    <string name="misc"><u>Misc</u></string>
+    <string name="insert_text_here">Insert Note Text Here:</string>
     <string name="save">Save</string>
     <string name="edit">Edit</string>
-    <string name="delete">Delete!</string>
+    <string name="delete">Delete</string>
     <string name="survivaltips">Survival Tips</string>
     <string name="links">Survival Links</string>
+    <string name="menulinks">Links</string>
+    <string name="menuhome">Home</string>
+    <string name="menutips">Tips</string>
+    <string name="menunotes">Notes</string>
 </resources>

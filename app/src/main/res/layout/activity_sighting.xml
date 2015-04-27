@@ -193,6 +193,26 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/date"
+            android:id="@+id/textView10"
+            style="@style/textcolors"
+            android:layout_row="7"
+            android:layout_column="0" />
+
+        <EditText
+            android:layout_width="302dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/date_input"
+            android:layout_row="7"
+            android:layout_column="5"
+            android:inputType="date"
+            style="@style/textcolors"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="@string/location"
             android:id="@+id/textView11"
             android:layout_row="8"

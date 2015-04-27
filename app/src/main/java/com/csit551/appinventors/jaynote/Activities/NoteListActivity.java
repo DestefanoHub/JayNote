@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -23,9 +24,9 @@ public class NoteListActivity extends ActionBarActivity
 {
     private DatabaseManager db;
     private Context context;
-    private Intent intent;
     private ListView notesList;
     private Button newNote;
+    private Toolbar toolbar;
     private ArrayList<NotesModel> notes;
     private static final int REQUEST_CODE_NOTE = 2;
 
@@ -33,6 +34,11 @@ public class NoteListActivity extends ActionBarActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_note_list);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        if (toolbar != null) {
+            setSupportActionBar(toolbar);
+            toolbar.setLogo(R.drawable.ic_launcher);
+        }
 
         db = new DatabaseManager(NoteListActivity.this.getApplicationContext());
         context = this.getBaseContext();

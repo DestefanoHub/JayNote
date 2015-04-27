@@ -3,20 +3,41 @@ package com.csit551.appinventors.jaynote.Activities;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
+
 
 import com.csit551.appinventors.jaynote.R;
 
-
 public class TipActivity extends ActionBarActivity
 {
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tip_list);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        if (toolbar != null) {
+            setSupportActionBar(toolbar);
+            toolbar.setLogo(R.drawable.ic_launcher);
+        }
+        TextView fireView = (TextView)findViewById(R.id.fireText);
+        String[] fireArray = getResources().getStringArray(R.array.fire);
+
+        String str = "";
+        for(int i = 0; i < fireArray.length; i++)
+        {
+            str += fireArray[i] + "\n";
+        }
+        fireView.setText(str);
     }
+
+
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
