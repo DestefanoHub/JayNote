@@ -20,12 +20,7 @@ public class SightingsListAdapter extends BaseAdapter
     private Context context;
     private ArrayList<SightingsModel> sightings;
     private TextView name;
-    private TextView size;
-    private TextView type;
-    private TextView color;
-    /*private Something date;
-    private Something time;*/
-    private TextView location;
+    private TextView dateTime;
 
     public SightingsListAdapter(ArrayList<SightingsModel> sightings, Context context)
     {
@@ -56,12 +51,7 @@ public class SightingsListAdapter extends BaseAdapter
         }
 
         name = (TextView) view.findViewById(R.id.name);
-        /*size = (TextView) view.findViewById(R.id.size);
-        type = (TextView) view.findViewById(R.id.type);
-        color = (TextView) view.findViewById(R.id.color);
-        date = (Something) view.findViewById(R.id.date);
-        time = (Something) view.findViewById(R.id.stime);
-        location = (TextView) view.findViewById(R.id.location);*/
+        dateTime = (TextView) view.findViewById(R.id.dateTime);
         SightingsModel sighting = sightings.get(position);
         name.setText(sighting.getName());
 
