@@ -147,8 +147,10 @@
             android:layout_height="wrap_content"
             android:id="@+id/imageButton"
             android:layout_row="4"
-            android:layout_column="5"
-            android:src="@mipmap/sound" />
+            android:layout_column="5" />
+
+        <!--
+            android:src="@mipmap/sound" /> -->
 
         <TextView
             android:layout_width="wrap_content"
@@ -164,10 +166,11 @@
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/imageButton2"
+            android:id="@+id/organism_photo_Button"
             android:layout_row="5"
             style="@style/textcolors"
-            android:layout_column="5" />
+            android:layout_column="5"
+            android:src="@mipmap/photo"/>
 
         <TextView
             android:layout_width="wrap_content"

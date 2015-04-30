@@ -3,16 +3,23 @@ package com.csit551.appinventors.jaynote.Activities;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.csit551.appinventors.jaynote.Database.DatabaseManager;
 import com.csit551.appinventors.jaynote.Database.SightingsModel;
 import com.csit551.appinventors.jaynote.R;
 
+import java.io.File;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -33,6 +40,8 @@ public class SightingActivity extends Activity
     private EditText sightingDateTime;
     private EditText sightingLocation;
     private EditText sightingMisc;
+    private ImageButton sightingPhoto;
+    private String sightingPhotoPath;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +61,17 @@ public class SightingActivity extends Activity
         save = (Button) findViewById(R.id.save_button);
         delete = (Button) findViewById(R.id.delete_button);
         edit = (Button) findViewById(R.id.edit_button);
+        sightingPhoto = (ImageButton) findViewById(R.id.organism_photo_Button);
+
+        //Listener for ImageButton click to take a picture
+        sightingPhoto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Intent of existing camera app is used
+                Intent inCam = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(inCam,0);
+            }
+        });
 
         intent = this.getIntent();
         if(intent.hasExtra("create_view_edit"))
@@ -101,7 +121,7 @@ public class SightingActivity extends Activity
                     String dateTime = sightingDateTime.getText().toString();
                     String location = sightingLocation.getText().toString();
                     String misc = sightingMisc.getText().toString();
-                    db.insertSighting(name, size, type, color, dateTime, null, null, location, misc);
+                    db.insertSighting(name, size, type, color, dateTime, null, sightingPhotoPath, location, misc);
                     setResult(RESULT_OK);
                     finish();
                 }
@@ -120,10 +140,17 @@ public class SightingActivity extends Activity
         sightingName.setText(sighting.getName());
         sightingSize.setText(sighting.getSize());
         sightingType.setText(sighting.getType());
-        sightingColor.setText(sighting.getColor());
+        sightingColor.setText(sighting.getColor() + sighting.getImage());
         sightingDateTime.setText(sighting.getDateTime());
         sightingLocation.setText(sighting.getLocation());
         sightingMisc.setText(sighting.getMisc());
+        //Set the photo in view
+        if (sighting.getImage() != null) {
+            Bitmap bp = getBitmapFromFile(sighting.getImage());
+            if (bp != null)
+                sightingPhoto.setImageBitmap(bp);
+        }
+
         //make the edittexts uneditable
         sightingName.setEnabled(false);
         sightingName.setFocusable(false);
@@ -139,6 +166,8 @@ public class SightingActivity extends Activity
         sightingLocation.setFocusable(false);
         sightingMisc.setEnabled(false);
         sightingMisc.setFocusable(false);
+        sightingPhoto.setEnabled(false);
+        sightingPhoto.setFocusable(false);
 
         edit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -163,6 +192,13 @@ public class SightingActivity extends Activity
         sightingDateTime.setText(sighting.getDateTime());
         sightingLocation.setText(sighting.getLocation());
         sightingMisc.setText(sighting.getMisc());
+        //Set the photo in view
+        if (sighting.getImage() != null) {
+            Bitmap bp = getBitmapFromFile(sighting.getImage());
+            if (bp != null)
+                sightingPhoto.setImageBitmap(bp);
+        }
+
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
@@ -196,5 +232,65 @@ public class SightingActivity extends Activity
                 finish();
             }
         });
+    }
+
+    //Below method will be triggered when user closed picture app by clicking save or discard
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+            Bundle retBundle = data.getExtras();
+
+            Bitmap bp = (Bitmap) retBundle.get("data");
+            sightingPhoto.setImageBitmap(bp);
+            Uri imgUri = data.getData();
+            sightingPhotoPath = getFilePathFromUri(imgUri);
+        }
+        else if(resultCode == RESULT_CANCELED) {
+            Toast toast = Toast.makeText(context, "Photo is not saved", Toast.LENGTH_SHORT);
+            toast.show();
+        }
+    }
+
+    //This method helps to get the path of the photo taken
+    private String getFilePathFromUri(Uri u)
+    {
+        String strFilePath;
+        String[] filePathColumn = {MediaStore.Images.Media.DATA};
+
+        Cursor cursor = getContentResolver().query(u, filePathColumn, null, null, null);
+        cursor.moveToFirst();
+
+        int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+        strFilePath = cursor.getString(columnIndex);
+        cursor.close();
+        return strFilePath;
+    }
+
+    //This method is to get the bitmap of a given image file path
+    private Bitmap getBitmapFromFile(String FileName)
+    {
+        Bitmap bMap = null;
+        File imgFile = new  File(FileName);
+        if(imgFile.exists()){
+            //To Scale the size of image to fit in the image button
+            int bitmapWidth = 100;
+            int bitmapHeight = 100;
+            // Get the dimensions of the image
+            BitmapFactory.Options bmOptions = new BitmapFactory.Options();
+            bmOptions.inJustDecodeBounds = true;
+            BitmapFactory.decodeFile(imgFile.getAbsolutePath(), bmOptions);
+            int photoW = bmOptions.outWidth;
+            int photoH = bmOptions.outHeight;
+
+            // Scale down factor
+            int scaleFactor = Math.min(photoW/bitmapWidth, photoH/bitmapHeight);
+            // Decode the image file
+            bmOptions.inJustDecodeBounds = false;
+            bmOptions.inSampleSize = scaleFactor;
+
+            bMap = BitmapFactory.decodeFile(imgFile.getAbsolutePath(), bmOptions);
+        }
+        return bMap;
     }
 }
