@@ -208,7 +208,6 @@
             android:layout_width="302dp"
             android:layout_height="wrap_content"
             android:id="@+id/time_of_day_input"
-            android:hint="@string/time_hint"
             android:layout_row="13"
             style="@style/textcolors"
             android:layout_column="0"

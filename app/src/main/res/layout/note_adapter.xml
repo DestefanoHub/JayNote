@@ -11,10 +11,14 @@
         android:padding="5dp"
         android:id="@+id/name"/>
 
-    <TextView
+<!--    <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="5dp"
-        android:id="@+id/body"/>
+        android:id="@+id/body"/>-->
+
+    <!--I took the body out because it it expands way too much
+    The alternative is of course to find a way way it only demonstrates
+    the first line - Cina-->
 
 </LinearLayout>

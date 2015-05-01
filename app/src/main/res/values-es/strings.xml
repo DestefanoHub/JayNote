@@ -2,7 +2,6 @@
 <resources>
     <string name="app_name">Jay Nota</string>
     <string name="color_organism"><u>Colores</u></string>
-    <string name="date"><u>Fecha</u></string>
     <string name="delete">Eliminar</string>
     <string name="edit">Editar</string>
     <string name="note_title_hint">Nombre de Consejo</string>
@@ -24,14 +23,13 @@
     <string name="sighting_title"><u>Título</u></string>
     <string name="size_animal"><u>Tamaño del Organismo</u></string>
     <string name="size_hint">Más grande, entonces , más pequeño que</string>
-    <string name="time_hint">La tarde, 3:45</string>
-    <string name="time_of_day"><u>Hora del Día</u></string>
-    <string name="title_activity_links">Enlaces para la Investigación</string>
+    <string name="time_of_day"><u>Tiempo/Fecha</u></string>
+    <string name="title_activity_links">Enlaces</string>
     <string name="title_activity_note">Tu Nota</string>
     <string name="title_activity_note_list">Notas de Campo</string>
     <string name="title_activity_sighting">Tu Avistamiento </string>
     <string name="title_activity_sighting_list">Avistamientos</string>
-    <string name="title_activity_tip">Consejos de Supervivencia</string>
+    <string name="title_activity_tip">Consejos</string>
     <string name="type_of_organism"><u>Tipo de Organismo</u></string>
     <string name="type_organism_hint">Un reptil, un pájaro, una cebra, etc.</string>
     <string name="upload_sound"><u>Subir Sonido</u></string>

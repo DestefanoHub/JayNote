@@ -20,7 +20,9 @@ public class NotesListAdapter extends BaseAdapter
     private Context context;
     private ArrayList<NotesModel> notes;
     private TextView nameText;
+/*
     private TextView bodyText;
+*/
 
     public NotesListAdapter(ArrayList<NotesModel> notes, Context context)
     {
@@ -51,11 +53,21 @@ public class NotesListAdapter extends BaseAdapter
         }
 
         nameText = (TextView) view.findViewById(R.id.name);
+/*
         bodyText = (TextView) view.findViewById(R.id.body);
+*/
         NotesModel note = notes.get(position);
         nameText.setText(note.getName());
+/*
         bodyText.setText(note.getBody());
+*/
 
         return view;
+
+
+
+/*        I took the body out because it it expands way too much
+        The alternative is of course to find a way way it only demonstrates
+        the first line - Cina*/
     }
 }
