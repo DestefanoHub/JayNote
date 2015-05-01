@@ -140,13 +140,14 @@ public class SightingActivity extends Activity
         sightingName.setText(sighting.getName());
         sightingSize.setText(sighting.getSize());
         sightingType.setText(sighting.getType());
-        sightingColor.setText(sighting.getColor() + sighting.getImage());
+        sightingColor.setText(sighting.getColor());
         sightingDateTime.setText(sighting.getDateTime());
         sightingLocation.setText(sighting.getLocation());
         sightingMisc.setText(sighting.getMisc());
+        sightingPhotoPath = sighting.getImage();
         //Set the photo in view
-        if (sighting.getImage() != null) {
-            Bitmap bp = getBitmapFromFile(sighting.getImage());
+        if (sightingPhotoPath != null) {
+            Bitmap bp = getBitmapFromFile(sightingPhotoPath);
             if (bp != null)
                 sightingPhoto.setImageBitmap(bp);
         }
@@ -192,9 +193,11 @@ public class SightingActivity extends Activity
         sightingDateTime.setText(sighting.getDateTime());
         sightingLocation.setText(sighting.getLocation());
         sightingMisc.setText(sighting.getMisc());
+        sightingPhotoPath = sighting.getImage();
+
         //Set the photo in view
-        if (sighting.getImage() != null) {
-            Bitmap bp = getBitmapFromFile(sighting.getImage());
+        if (sightingPhotoPath != null) {
+            Bitmap bp = getBitmapFromFile(sightingPhotoPath);
             if (bp != null)
                 sightingPhoto.setImageBitmap(bp);
         }
@@ -211,6 +214,7 @@ public class SightingActivity extends Activity
                     sighting.setDateTime(sightingDateTime.getText().toString());
                     sighting.setLocation(sightingLocation.getText().toString());
                     sighting.setMisc(sightingMisc.getText().toString());
+                    sighting.setImage(sightingPhotoPath);
                     db.updateSighting(sighting);
                     Intent newIntent = new Intent(context, MainActivity.class);
                     startActivity(newIntent);
