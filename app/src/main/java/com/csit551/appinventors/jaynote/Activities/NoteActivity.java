@@ -30,7 +30,6 @@ public class NoteActivity extends Activity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_note);
-
         db = new DatabaseManager(NoteActivity.this.getApplicationContext());
         context = this.getBaseContext();
 

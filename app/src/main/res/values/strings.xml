@@ -31,11 +31,11 @@
 
     <!--Shelter, fire, food, water, first aid. These are the survival tips-->
     <string-array name="shelter">
-       <item>One shelter that has worked very well in the past, is a lean-to shelter, it is fairly easy to construct, and is very effective.</item>
-       <item>Make the inside of your shelter as small as you can in cold conditions with lots of insulation</item>
-       <item>Building a fire reflector (a wall of sticks, rocks, etc.) will improve a lean-to by reflecting the fire\'s warmth back into the open side of the lean-to.</item>
-       <item>Bring one or two metallic rescue blankets wherever you go. They are useful for building shelters, reflectors, and water collectors, and you can even cook with them.</item>
-       <item>Bring a cheap, lightweight tent with you whenever you go hiking, even if you are not staying the night. Consider a tube tent. A tube can be constructed by gluing (with waterproof glue) the long edge of a thin tarp or plastic drop cloth to the matching edge, creating a tube of-sorts. To use, simply string the string from one end of the tube through the other end, and tie the ends between two trees. If you are injured in the wilderness, such a shelter can be easy to erect quickly. When injured (particularly in cold weather) proper shelter can be essential for your survival.</item>
+        <item>One shelter that has worked very well in the past, is a lean-to shelter, it is fairly easy to construct, and is very effective.</item>
+        <item>Make the inside of your shelter as small as you can in cold conditions with lots of insulation</item>
+        <item>Building a fire reflector (a wall of sticks, rocks, etc.) will improve a lean-to by reflecting the fire\'s warmth back into the open side of the lean-to.</item>
+        <item>Bring one or two metallic rescue blankets wherever you go. They are useful for building shelters, reflectors, and water collectors, and you can even cook with them.</item>
+        <item>Bring a cheap, lightweight tent with you whenever you go hiking, even if you are not staying the night. Consider a tube tent. A tube can be constructed by gluing (with waterproof glue) the long edge of a thin tarp or plastic drop cloth to the matching edge, creating a tube of-sorts. To use, simply string the string from one end of the tube through the other end, and tie the ends between two trees. If you are injured in the wilderness, such a shelter can be easy to erect quickly. When injured (particularly in cold weather) proper shelter can be essential for your survival.</item>
     </string-array>
 
     <string-array name="fire">
@@ -103,9 +103,8 @@
     <string name="color_organism"><u>Colors</u></string>
     <string name="upload_sound"><u>Upload Sound</u></string>
     <string name="organism_photo"><u>Photo</u></string>
-    <string name="time_of_day"><u>Time of Day</u></string>
+    <string name="time_of_day"><u>Time/Date</u></string>
     <string name="time_hint">Afternoon, 3:45</string>
-    <string name="date"><u>Date</u></string>
     <string name="location"><u>Location</u></string>
     <string name="misc"><u>Misc</u></string>
     <string name="insert_text_here">Insert Note Text Here:</string>

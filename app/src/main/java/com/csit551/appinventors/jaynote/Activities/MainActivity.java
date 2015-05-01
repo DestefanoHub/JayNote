@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.support.v7.widget.Toolbar;
 
 import com.csit551.appinventors.jaynote.Database.DatabaseManager;
 import com.csit551.appinventors.jaynote.Database.SightingsModel;
@@ -24,6 +25,7 @@ public class MainActivity extends ActionBarActivity
     private Context context;
     private ListView sightingsList;
     private Button newSighting;
+    private Toolbar toolbar;
    /* private Button newNote;*/
     private ArrayList<SightingsModel> sightings;
     private static final int REQUEST_CODE_MAIN = 1;
@@ -31,7 +33,11 @@ public class MainActivity extends ActionBarActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        if (toolbar != null) {
+            setSupportActionBar(toolbar);
+            toolbar.setLogo(R.drawable.ic_launcher);
+        }
         db = new DatabaseManager(MainActivity.this.getApplicationContext());
         context = this.getBaseContext();
 
@@ -120,7 +126,7 @@ public class MainActivity extends ActionBarActivity
             finish();
         }
 
-        /*if(id == R.id.action_links)
+        if(id == R.id.action_links)
         {
             Intent intent = new Intent(MainActivity.this.getApplicationContext(), LinkListActivity.class);
             startActivity(intent);
@@ -132,7 +138,7 @@ public class MainActivity extends ActionBarActivity
             Intent intent = new Intent(MainActivity.this.getApplicationContext(), TipActivity.class);
             startActivity(intent);
             finish();
-        }*/
+        }
 
         return super.onOptionsItemSelected(item);
     }
