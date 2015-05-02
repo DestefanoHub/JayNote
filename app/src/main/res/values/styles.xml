@@ -1,21 +1,13 @@
 <resources>
-
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-<!--
-        <item name="colorPrimary">@</item>
--->
-        <item name="colorPrimaryDark">#000000</item>
-        <item name="colorAccent">#CFCFCF</item>
-        <item name="android:windowNoTitle">true</item>
-        <item name="windowActionBar">false</item>
         <item name="android:textColor">#FFFFFF</item>
     </style>
 
     <style name="background">
         <item name="android:background">@mipmap/backgroundwoods</item>
 
-    </style>
+    </style>    <!--Note: All backgrounds use the same color scheme.-->
 
     <style name="textcolors">
         <item name="android:textColorHint">#CFCFCF</item>
