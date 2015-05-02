@@ -13,7 +13,7 @@
     </style>
 
     <style name="background">
-        <item name="android:background">@mipmap/type2h</item>
+        <item name="android:background">@mipmap/backgroundwoods</item>
 
     </style>
 
