@@ -35,29 +35,35 @@ public class TipActivity extends ExpandableListActivity
 
         SimpleExpandableListAdapter tiplistAdapter =
         new SimpleExpandableListAdapter(this,
-            createParent(),R.layout.tip_parent_adapter,
-            new String[] { "Group Item" }, new int[] { R.id.tip_parent},
+            createParent(),R.layout.tip_parent_adapter,   /*Tip category and child have to match*/
+            new String[] { "TipCategory" }, new int[] { R.id.tip_parent},
             createChild(), R.layout.tip_child_adapter,
-            new String[] {"Sub Item"}, new int[] { R.id.tip_child});
+            new String[] {"Child"}, new int[] { R.id.tip_child});
         setListAdapter( tiplistAdapter);
 
     }    @SuppressWarnings("unchecked")
          private List createParent() {
         ArrayList result = new ArrayList();
+        Resources res = this.getResources();
+        String shelter = res.getString(R.string.Shelter);
         HashMap m = new HashMap();
-        m.put( "TipCategory","Shelter");
+        m.put("TipCategory", shelter);
         result.add( m );
+        String fire = res.getString(R.string.Fire);
         HashMap n = new HashMap();
-        n.put( "TipCategory","Fire");
-        result.add( n );
+        n.put( "TipCategory",fire);                       /*I could probably call this from strings so translation*/
+        result.add(n);
+        String food = res.getString(R.string.Food);
         HashMap o = new HashMap();
-        o.put("TipCategory", "Food");
+        o.put("TipCategory", food);
         result.add(o);
+        String water = res.getString(R.string.Water);
         HashMap p = new HashMap();
-        p.put("TipCategory", "Water");
+        p.put("TipCategory", water);
         result.add(p);
+        String firstaid = res.getString(R.string.FirstAid);
         HashMap q = new HashMap();
-        q.put("TipCategory", "First Aid");
+        q.put("TipCategory", firstaid);
         result.add( q );
         return result;
     }
@@ -108,23 +114,6 @@ public class TipActivity extends ExpandableListActivity
         }
         outer.add( inner );
         return outer;
-    }
-
-    public void  onContentChanged  () {
-        System.out.println("onContentChanged");
-        super.onContentChanged();
-    }
-    public boolean onChildClick( ExpandableListView parent, View v, int groupPosition,int childPosition,long id) {
-        System.out.println("Inside onChildClick at groupPosition = " + groupPosition +" Child clicked at position " + childPosition);
-        return true;
-    }
-
-    public void  onGroupExpand  (int groupPosition) {
-        try{
-            System.out.println("Group expanding Listener => groupPosition" + groupPosition);
-        }catch(Exception e){
-            System.out.println(" groupPosition +" + e.getMessage());
-        }
     }
 
 /*    @Override

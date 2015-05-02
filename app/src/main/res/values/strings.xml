@@ -7,6 +7,13 @@
     <string name="title_activity_links">Links</string>
     <string name="title_activity_note_list">Field Notes</string>
     <string name="title_activity_sighting_list">Sightings</string>
+    <string name="Shelter"><u>Shelter</u></string>
+    <string name="Fire"><u>Fire</u></string>
+    <string name="Food"><u>Food</u></string>
+    <string name="Water"><u>Water</u></string>
+    <string name="FirstAid"><u>First Aid</u></string>
+
+
 
     <string-array name="links">
         <item>http://ees.elsevier.com/wemj/</item>
