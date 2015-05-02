@@ -11,19 +11,19 @@
 
     <item
         android:id="@+id/action_home"
-        android:title="Home"
+        android:title="@string/menuhome"
         android:orderInCategory="101"
         app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/action_links"
-        android:title="Links"
+        android:title="@string/menulinks"
         android:orderInCategory="102"
         app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/action_tips"
-        android:title="Tips"
+        android:title="@string/menutips"
         android:orderInCategory="103"
         app:showAsAction="ifRoom" />
 </menu>

@@ -30,8 +30,12 @@ public class TipActivity extends ExpandableListActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tip_list);
-/*        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setLogo(R.drawable.ic_launcher);*/
+/*        getDelegate().installViewFactory();
+        getDelegate().onCreate(savedInstanceState);*/
+        /*if (toolbar != null) {
+            setSupportActionBar(toolbar);
+            toolbar.setLogo(R.drawable.ic_launcher);
+        }*/
 
         SimpleExpandableListAdapter tiplistAdapter =
         new SimpleExpandableListAdapter(this,
