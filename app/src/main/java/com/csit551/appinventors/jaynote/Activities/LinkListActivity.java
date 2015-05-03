@@ -1,11 +1,15 @@
 package com.csit551.appinventors.jaynote.Activities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.csit551.appinventors.jaynote.R;
@@ -14,9 +18,12 @@ public class LinkListActivity extends ActionBarActivity
 {
     private ListView linkList;
     private Toolbar toolbar;
+    private String[] links = getResources().getStringArray(R.array.links);
+    private Context context;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_link_list);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -25,6 +32,19 @@ public class LinkListActivity extends ActionBarActivity
             toolbar.setLogo(R.drawable.ic_launcher);
         }
         linkList = (ListView) findViewById(R.id.link_list);
+        context = getBaseContext();
+
+        ArrayAdapter<String> linkAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_single_choice, links);
+        linkList.setAdapter(linkAdapter);
+        linkList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id)
+            {
+                Intent intent = new Intent(context, WebViewActivity.class);
+                intent.putExtra("web_path", links[position]);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
