@@ -2,13 +2,18 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.csit551.appinventors.jaynote" >
 
+    <uses-feature android:name="android.hardware.camera" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.RECORD_VIDEO" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme"
-        >
+        android:theme="@style/AppTheme" >
         <activity
             android:name=".Activities.MainActivity"
             android:label="@string/app_name" >
@@ -24,13 +29,13 @@
         </activity>
         <activity
             android:name=".Activities.SightingActivity"
-            android:windowSoftInputMode="adjustNothing"
-            android:label="@string/title_activity_sighting" >
+            android:label="@string/title_activity_sighting"
+            android:windowSoftInputMode="adjustNothing" >
         </activity>
         <activity
             android:name=".Activities.NoteActivity"
-            android:windowSoftInputMode="adjustNothing"
-            android:label="@string/title_activity_note" >
+            android:label="@string/title_activity_note"
+            android:windowSoftInputMode="adjustNothing" >
         </activity>
         <activity
             android:name=".Activities.LinkListActivity"
@@ -40,9 +45,10 @@
             android:name=".Activities.NoteListActivity"
             android:label="@string/title_activity_note_list" >
         </activity>
+        <activity
+            android:name=".Activities.WebViewActivity"
+            android:label="@string/title_activity_web_view" >
+        </activity>
     </application>
-    <uses-feature android:name="android.hardware.camera" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    <uses-permission android:name="android.permission.RECORD_VIDEO" />
+
 </manifest>
