@@ -5,7 +5,7 @@
     </style>
 
     <style name="background">
-        <item name="android:background">@mipmap/backgroundwoods</item>
+        <item name="android:background">@drawable/backgroundwoods</item>
 
     </style>    <!--Note: All backgrounds use the same color scheme.-->
 
