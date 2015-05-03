@@ -2,7 +2,6 @@
 <resources>
     <string name="app_name">Jay Nota</string>
     <string name="color_organism"><u>Colores</u></string>
-    <string name="date"><u>Fecha</u></string>
     <string name="delete">Eliminar</string>
     <string name="edit">Editar</string>
     <string name="note_title_hint">Nombre de Consejo</string>
@@ -24,17 +23,85 @@
     <string name="sighting_title"><u>Título</u></string>
     <string name="size_animal"><u>Tamaño del Organismo</u></string>
     <string name="size_hint">Más grande, entonces , más pequeño que</string>
-    <string name="time_hint">La tarde, 3:45</string>
-    <string name="time_of_day"><u>Hora del Día</u></string>
-    <string name="title_activity_links">Enlaces para la Investigación</string>
+    <string name="time_of_day"><u>Tiempo/Fecha</u></string>
+    <string name="title_activity_links">Enlaces</string>
     <string name="title_activity_note">Tu Nota</string>
     <string name="title_activity_note_list">Notas de Campo</string>
     <string name="title_activity_sighting">Tu Avistamiento </string>
     <string name="title_activity_sighting_list">Avistamientos</string>
-    <string name="title_activity_tip">Consejos de Supervivencia</string>
+    <string name="title_activity_tip">Consejos</string>
     <string name="type_of_organism"><u>Tipo de Organismo</u></string>
     <string name="type_organism_hint">Un reptil, un pájaro, una cebra, etc.</string>
     <string name="upload_sound"><u>Subir Sonido</u></string>
     <string name="weight_hint">Más pesado que, más ligero entonces, etc</string>
     <string name="your_sightings">Tus Avistamientos</string>
+    <string name="Shelter"><u>Abrigo</u></string>
+    <string name="Fire"><u>Fuego</u></string>
+    <string name="Food"><u>Comida</u></string>
+    <string name="Water"><u>Agua</u></string>
+    <string name="FirstAid"><u>Primeros Auxilios</u></string>
+
+<!--still gotta translate these yo-->
+
+
+    <string-array name="shelter">
+        <item>Un refugio que ha funcionado muy bien en el pasado , es un cobertizo refugio , es bastante fácil de construir, y es muy eficaz .</item>
+        <item>Hacer que el interior de su vivienda tan pequeño como sea posible en condiciones de frío con un montón de aislamiento</item>
+        <item>La construcción de un reflector de fuego ( una pared de palos , piedras , etc. ) mejorará un cobertizo al reflejar el calor del fuego nuevo en el lado abierto del cobertizo </item>
+        <item>Traiga una o dos mantas de rescate metálicos donde quiera que vaya . Son útiles para la construcción de refugios , reflectores y colectores de agua , e incluso se puede cocinar con ellos </item>
+        <item>Traiga una tienda de campaña ligera barato con usted cada vez que vayas de excursión , incluso si no te alojas la noche. Considere una tienda de campaña tubo. Un tubo se puede construir mediante encolado ( con pegamento impermeable) el borde largo de una lona o tela fina gota de plástico para el borde a juego, la creación de un tubo de clases. Para usarlo, simplemente cadena la cadena de un extremo del tubo a través del otro extremo , y atar los extremos entre dos árboles . Si usted se lesiona en el desierto, un refugio de este tipo puede ser fácil de erigir rápidamente. Cuando heridos ( especialmente en climas fríos ) refugio adecuado puede ser esencial para su supervivencia.</item>
+    </string-array>
+
+    <string-array name="fire">
+        <item>Papel, cartón , o un paño que no sean necesarios pueden ser fácil empezar en el fuego</item>
+        <item>Utilice pequeñas ramitas de debajo de la cubierta principal del árbol como yesca. ( Si no se rompen con facilidad , son todavía verde. )</item>
+        <item>Agujas de pino secos funcionan muy bien para comenzar incendios y emiten una gran cantidad de humo.</item>
+        <item>Frotar la corteza entre sus manos hasta que esté suave y esponjosa también hace excelente yesca</item>
+        <item>El viejo truco de fuego arco es un trabajo muy duro , incluso en las mejores circunstancias</item>
+        <item>El fuego puede iniciarse con una lente de cristal de una lente de aumento , espejo, binoculares, y la parte inferior pulida de una lata de refresco . (La mayoría de las lentes no funcionarán. )</item>
+        <item>Flint y acero funciona pero hay que practicar con él primero .</item>
+        <item>De dos componentes iniciadores de fuego químico funcionan bastante bien y funcionan incluso bajo la lluvia</item>
+        <item>Arrancadores de fuego magnesio funcionan bien, pero practican con ellos primero</item>
+    </string-array>
+
+    <string-array name="food">
+        <item>No comer setas u hongos a menos que sepa con certeza que es comestible. La mayoría son venenosas , y no hay forma de determinar cuáles son comestibles sin identificar correctamente la especie.</item>
+        <item>Las plantas con flores en forma de paraguas no se deben comer .</item>
+        <item>La regla de la baya es que 10 por ciento de las bayas blancas y amarillas son comestibles ; 50 por ciento de las bayas rojas son comestibles ; 90 por ciento de las bayas azules , negros o morados son comestibles , y el 99 por ciento de las bayas agregados son comestibles .</item>
+        <item>Frutas y bayas agregados son casi siempre comestible (mora, frambuesa, salmonberry y thimbleberry ) .</item>
+        <item>Tuercas salvajes que saben o huelen a almendras son extremadamente peligrosos. Ellos contienen cianuro de hidrógeno.</item>
+        <item>Las plantas con hojas brillantes o una savia lechosa se ​​consideran venenosas. ( Ambos tienen savia lechosa.)</item>
+        <item>Frutas individuales en un tallo generalmente se consideran seguros para comer.</item>
+        <item>La mayoría de los gusanos y comida son buenos para comer . Ayuda a comida de tostadas hasta que se secan.</item>
+        <item>Evite los insectos de colores borrosos , peludos o brillantes.</item>
+        <item>Evite los insectos que pican o muerden.</item>
+        <item>Los peces son más fáciles de coger de la caza silvestre.</item>
+        <item> El marco de tiempo de la semana puede sorprender a algunos, pero la realidad es que en la mayoría de situaciones de supervivencia , la comida es el factor menos importante. </item>
+    </string-array>
+
+    <string-array name="water">
+        <item>Por favor, evite el pensamiento de agua racionamiento. La mejor contenedor de almacenamiento en una situación de supervivencia es su propio cuerpo. Incluso los soldados experimentados han sido encontrado muerto de deshidratación con una cantimplora llena . </item>
+        <item>Los seres humanos pueden sobrevivir 3 días en promedio sin agua</item>
+        <item>Senderos que conducen juego cuesta abajo pueden llevar al agua , pero puede ser millas de distancia .</item>
+        <item>El agua es más probable encontrar en zonas verdes con una buena cantidad de vegetación.</item>
+        <item>Usted debe tener un mapa que muestra las fuentes de agua en la zona donde va a operar.</item>
+        <item>Rocío puede ser una fuente de agua cuando se condensa en cualquier superficie. Sop para arriba con una esponja o paño.</item>
+        <item> NO beber agua de mar a menos que se destila ! Se necesita el doble de agua para su cuerpo para procesar el agua de mar a medida que obtiene de ella . </item>
+        <item> NUNCA beber orina , incluso si se filtra . Los riñones pueden no ser capaces de limpiar la acumulación . </item>
+        <item> Evite comer nieve en frío; hacerlo puede significativamente menor temperatura corporal ( como puede deshidratarse ) e incluso llevar a un shock . </item>
+        <item> Incluso llevar agua a temperatura incómodamente caliente al tacto mata a la mayoría de los organismos, pero hervir si se puede. </item>
+    </string-array>
+
+    <string-array name="firstaid">
+        <item> Asegúrese de secar si se moja, la hipotermia puede ocurrir en menos de una hora a temperaturas de hasta 15 ° C (59 ° F) </item>
+        <item> Los primeros síntomas básicos de la hipotermia son incontrolables temblores, la rigidez y la confusión. </item>
+        <item> ictus Sun menudo causa grandes daños a los sistemas del cuerpo como el cerebro, los riñones, el hígado, el tracto gástrico. </item>
+        <item> Si usted se siente sobrecalentado, sentarse, deposición y levante las piernas. Rehidratar y encontrar un lugar fresco </item>
+        <item> La mayoría de las mordeduras de animales deben ser considerados como posibles fuentes de infección, incluso la rabia. Lave la herida, idealmente con jabón de povidona yodada. Sin apretar vendar, y no suturar ella. </item>
+        <item> Heridas con salir a borbotones, sangre roja brillante requieren presión inmediata para detener el sangrado. Si es necesario, es posible que tenga que utilizar el dedo para empujar en la arteria sangrante. </item>
+        <item> infecciones locales relativamente inofensivos en el sitio de la herida pueden escalar rápidamente en la vida en peligro infecciones sistémicas si no se tiene el cuidado adecuado. </item>
+        <item> El tratamiento básico es el aceite de clavo de olor en el embalaje en el diente dolorido para reducir el dolor. </item>
+
+    </string-array>
+
 </resources>

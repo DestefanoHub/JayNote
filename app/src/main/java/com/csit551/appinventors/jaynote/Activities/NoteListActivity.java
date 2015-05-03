@@ -115,7 +115,7 @@ public class NoteListActivity extends ActionBarActivity
             finish();
         }
 
-        /*if(id == R.id.action_links)
+        if(id == R.id.action_links)
         {
             Intent intent = new Intent(NoteListActivity.this.getApplicationContext(), LinkListActivity.class);
             startActivity(intent);
@@ -127,7 +127,7 @@ public class NoteListActivity extends ActionBarActivity
             Intent intent = new Intent(NoteListActivity.this.getApplicationContext(), TipActivity.class);
             startActivity(intent);
             finish();
-        }*/
+        }
 
         return super.onOptionsItemSelected(item);
     }

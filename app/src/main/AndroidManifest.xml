@@ -2,9 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.csit551.appinventors.jaynote" >
 
-    <!--<uses-sdk
-            android:minSdkVersion="3"
-            android:targetSdkVersion="19" />-->
 
     <application
         android:allowBackup="true"
@@ -44,5 +41,8 @@
             android:label="@string/title_activity_note_list" >
         </activity>
     </application>
-
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.RECORD_VIDEO" />
 </manifest>

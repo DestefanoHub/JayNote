@@ -1,21 +1,13 @@
 <resources>
-
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-<!--
-        <item name="colorPrimary">@</item>
--->
-        <item name="colorPrimaryDark">#000000</item>
-        <item name="colorAccent">#CFCFCF</item>
-        <item name="android:windowNoTitle">true</item>
-        <item name="windowActionBar">false</item>
         <item name="android:textColor">#FFFFFF</item>
     </style>
 
     <style name="background">
-        <item name="android:background">@mipmap/type2h</item>
+        <item name="android:background">@drawable/backgroundwoods</item>
 
-    </style>
+    </style>    <!--Note: All backgrounds use the same color scheme.-->
 
     <style name="textcolors">
         <item name="android:textColorHint">#CFCFCF</item>
@@ -26,7 +18,11 @@
 
 
 
-
+    <!--Sources of images
+     Cina made the gradients
+     The logo is the green jay on the wikipedia page
+     The woods background is a crop from the "Wild" background
+      from the Elementary OS wallpapers.-->
 
 
     <!--You can switch between gradients easily here. Just the last two characters of the reference
