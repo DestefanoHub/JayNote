@@ -126,7 +126,7 @@ public class NoteListActivity extends ActionBarActivity
         {
             Intent intent = new Intent(NoteListActivity.this.getApplicationContext(), TipActivity.class);
             startActivity(intent);
-            finish();
+/*            finish();*/
         }
 
         return super.onOptionsItemSelected(item);

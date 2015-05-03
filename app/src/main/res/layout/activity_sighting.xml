@@ -219,7 +219,9 @@
             style="@style/textcolors"
             android:inputType="textMultiLine"
             android:textAppearance="?android:attr/textAppearanceSmall" />
-
+        <Space
+            android:layout_width="1dp"
+            android:layout_height="300dp"/>
     </GridLayout>
     </ScrollView>
 

@@ -52,7 +52,7 @@ public class LinkListActivity extends ActionBarActivity
         {
             Intent intent = new Intent(LinkListActivity.this.getApplicationContext(), LinkListActivity.class);
             startActivity(intent);
-            finish();
+/*            finish();*/
         }
 
         if(id == R.id.action_notes)
