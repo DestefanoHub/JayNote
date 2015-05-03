@@ -6,14 +6,12 @@
     style="@style/background"
     tools:context="com.csit551.appinventors.jaynote.Activities.TipActivity">
 
-<!--
-    <android.Toolbar
+<!--    <android.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#000000"
-        />
--->
+        />-->
 
     <ExpandableListView
         android:layout_width="fill_parent"

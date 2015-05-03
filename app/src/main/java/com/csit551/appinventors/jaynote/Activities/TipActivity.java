@@ -1,9 +1,12 @@
 package com.csit551.appinventors.jaynote.Activities;
 /*made by Cina*/
 import android.app.ExpandableListActivity;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ExpandableListView;
 import android.widget.SimpleExpandableListAdapter;
@@ -32,8 +35,10 @@ public class TipActivity extends ExpandableListActivity
         setContentView(R.layout.activity_tip_list);
 /*        getDelegate().installViewFactory();
         getDelegate().onCreate(savedInstanceState);*/
-        /*if (toolbar != null) {
+/*        if (toolbar != null) {
+*//*
             setSupportActionBar(toolbar);
+*//*
             toolbar.setLogo(R.drawable.ic_launcher);
         }*/
 
@@ -82,7 +87,7 @@ public class TipActivity extends ExpandableListActivity
             shelterh.put("Child", shelter); /*type and string[]*/
             inner.add(shelterh);/*pass hashmap adapter.*/
         }
-        outer.add( inner );/*arraylist/add*/
+        outer.add(inner);/*arraylist/add*/
         inner = new ArrayList();
         String[] fires = res.getStringArray(R.array.fire);
         for (String fire : fires) {
@@ -90,7 +95,7 @@ public class TipActivity extends ExpandableListActivity
             fireh.put("Child", fire);
             inner.add(fireh);/*pass hashmap adapter.*/
         }
-        outer.add( inner );
+        outer.add(inner);
         inner = new ArrayList();
         String[] foods = res.getStringArray(R.array.food);
         for (String food : foods) {
@@ -98,7 +103,7 @@ public class TipActivity extends ExpandableListActivity
             foodh.put("Child", food);
             inner.add(foodh);/*pass hashmap adapter.*/
         }
-        outer.add( inner );
+        outer.add(inner);
         inner = new ArrayList();
         String[] waters = res.getStringArray(R.array.water);
         for (String water : waters) {
@@ -106,15 +111,13 @@ public class TipActivity extends ExpandableListActivity
             waterh.put("Child", water);
             inner.add(waterh);/*pass hashmap adapter.*/
         }
-        outer.add( inner );
+        outer.add(inner);
         inner = new ArrayList();
         String[] firstaids = res.getStringArray(R.array.firstaid);
-        int i=0;
-        while (i<firstaids.length) {
+        for (String firstaid : firstaids) {
             HashMap<String, String> firstaidh = new HashMap<String, String>();
-            firstaidh.put("Child", fires[i]);
-            inner.add( firstaidh );/*pass hashmap adapter.*/
-            i++;
+            firstaidh.put("Child", firstaid);
+            inner.add(firstaidh);/*pass hashmap adapter.*/
         }
         outer.add( inner );
         return outer;
@@ -125,10 +128,10 @@ public class TipActivity extends ExpandableListActivity
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_tip, menu);
         return true;
-    }*/
+    }
 
-   /* @Override*/
-/*    public boolean onOptionsItemSelected(MenuItem item) {
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
