@@ -4,6 +4,8 @@ import android.app.ExpandableListActivity;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatCallback;
+import android.support.v7.view.ActionMode;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -11,9 +13,7 @@ import android.view.View;
 import android.widget.ExpandableListView;
 import android.widget.SimpleExpandableListAdapter;
 import android.support.v7.app.ActionBar;
-/*
 import android.support.v7.app.AppCompatDelegate;
-*/
 
 
 /*Main problem. Hitting back, exits the app instead of bringing it back to main
@@ -35,30 +35,35 @@ public class TipActivity extends ExpandableListActivity
 {                               /*ExpandableList is being extended*/
                                 /*therefore*/
     private Toolbar toolbar;
-/*
     private AppCompatDelegate delegate;
-*/
 
     @SuppressWarnings("unchecked")
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tip_list);
-/*        getDelegate().installViewFactory();
-        getDelegate().onCreate(savedInstanceState);*/
-/*        if (toolbar != null) {
-*//*
-            setSupportActionBar(toolbar);
-*//*
-            toolbar.setLogo(R.drawable.ic_launcher);
-        }*/
+        AppCompatCallback call = new AppCompatCallback() {
+            @Override
+            public void onSupportActionModeStarted(ActionMode actionMode) {
+            }
+
+            @Override
+            public void onSupportActionModeFinished(ActionMode actionMode) {
+            }
+        };
+        delegate= AppCompatDelegate.create(this, call);
+        delegate.onCreate(savedInstanceState);
+        delegate.setContentView(R.layout.activity_tip_list);
+        toolbar= (Toolbar) findViewById(R.id.toolbar);
+        delegate.setSupportActionBar(toolbar);
+        toolbar.setLogo(R.drawable.ic_launcher);
+
 
         SimpleExpandableListAdapter tiplistAdapter =
         new SimpleExpandableListAdapter(this,
             createParent(),R.layout.tip_parent_adapter,   /*Tip category and child have to match*/
             new String[] { "TipCategory" }, new int[] { R.id.tip_parent},
             createChild(), R.layout.tip_child_adapter,
-            new String[] {"Child"}, new int[] { R.id.tip_child});
-        setListAdapter( tiplistAdapter);
+            new String[] {"Child"}, new int[] {R.id.tip_child});
+        setListAdapter(tiplistAdapter);
 
     }    @SuppressWarnings("unchecked")
          private List createParent() {
@@ -66,19 +71,19 @@ public class TipActivity extends ExpandableListActivity
         Resources res = this.getResources();
         String shelter = res.getString(R.string.Shelter);
         HashMap m = new HashMap();
-        m.put("TipCategory", shelter);
+    m.put("TipCategory", shelter);
         result.add( m );
         String fire = res.getString(R.string.Fire);
         HashMap n = new HashMap();
-        n.put( "TipCategory",fire);                       /*I could probably call this from strings so translation*/
+    n.put( "TipCategory",fire);                       /*I could probably call this from strings so translation*/
         result.add(n);
         String food = res.getString(R.string.Food);
         HashMap o = new HashMap();
-        o.put("TipCategory", food);
+    o.put("TipCategory", food);
         result.add(o);
         String water = res.getString(R.string.Water);
         HashMap p = new HashMap();
-        p.put("TipCategory", water);
+    p.put("TipCategory", water);
         result.add(p);
         String firstaid = res.getString(R.string.FirstAid);
         HashMap q = new HashMap();
@@ -133,7 +138,9 @@ public class TipActivity extends ExpandableListActivity
         return outer;
     }
 
-/*    @Override
+
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_tip, menu);
@@ -169,5 +176,5 @@ public class TipActivity extends ExpandableListActivity
         }
 
         return super.onOptionsItemSelected(item);
-    }*/
+    }
 }

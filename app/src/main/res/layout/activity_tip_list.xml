@@ -6,18 +6,20 @@
     style="@style/background"
     tools:context="com.csit551.appinventors.jaynote.Activities.TipActivity">
 
-<!--    <android.Toolbar
+    <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#000000"
-        />-->
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        />
+
 
     <ExpandableListView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:id="@+id/android:list"
         style="@style/textcolors"
- />
+        android:layout_below="@+id/toolbar" />
 
 </RelativeLayout>
