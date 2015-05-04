@@ -170,7 +170,7 @@ public class TipActivity extends ExpandableListActivity
 
         if(id == R.id.action_notes)
         {
-            Intent intent = new Intent(TipActivity.this.getApplicationContext(), TipActivity.class);
+            Intent intent = new Intent(TipActivity.this.getApplicationContext(), NoteListActivity.class);
             startActivity(intent);
             finish();
         }
