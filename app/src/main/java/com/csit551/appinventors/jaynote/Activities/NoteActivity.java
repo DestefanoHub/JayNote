@@ -80,6 +80,8 @@ public class NoteActivity extends Activity
                     String name = noteName.getText().toString();
                     String body = noteBody.getText().toString();
                     db.insertNote(name, body);
+                    Toast toast = Toast.makeText(context, "Saved!", Toast.LENGTH_SHORT);
+                    toast.show();
                     setResult(RESULT_OK);
                     finish();
                 }
@@ -129,6 +131,8 @@ public class NoteActivity extends Activity
                     note.setName(noteName.getText().toString());
                     note.setBody(noteBody.getText().toString());
                     db.updateNote(note);
+                    Toast toast = Toast.makeText(context, "Saved!", Toast.LENGTH_SHORT);
+                    toast.show();
                     Intent newIntent = new Intent(context, NoteListActivity.class);
                     startActivity(newIntent);
                     finish();
@@ -144,6 +148,8 @@ public class NoteActivity extends Activity
             public void onClick(View v)
             {
                 db.deleteNote(note);
+                Toast toast = Toast.makeText(context, "Deleted!", Toast.LENGTH_SHORT);
+                toast.show();
                 Intent newIntent = new Intent(context, NoteListActivity.class);
                 startActivity(newIntent);
                 finish();

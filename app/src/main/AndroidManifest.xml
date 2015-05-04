@@ -29,9 +29,13 @@
         </activity>
         <activity
             android:name=".Activities.NoteActivity"
-            android:windowSoftInputMode="adjustNothing"
             android:label="@string/title_activity_note" >
         </activity>
+
+        <!--windowSoftInput will keep the buttons from meshing in SightingActivity.
+        However, putting it in noteactivity will not let the user see latter portions of the
+        note editbox. -Cina-->
+
         <activity
             android:name=".Activities.LinkListActivity"
             android:label="@string/title_activity_links" >

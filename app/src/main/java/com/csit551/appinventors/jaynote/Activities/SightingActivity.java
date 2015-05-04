@@ -140,6 +140,8 @@ public class SightingActivity extends Activity
                     String misc = sightingMisc.getText().toString();
                     String audioFile = sightingAudioControl.getFilePath();
                     db.insertSighting(name, size, type, color, dateTime, audioFile, sightingPhotoPath, location, misc);
+                    Toast toast = Toast.makeText(context, "Saved!", Toast.LENGTH_SHORT);
+                    toast.show();
                     setResult(RESULT_OK);
                     finish();
                 }
@@ -208,6 +210,8 @@ public class SightingActivity extends Activity
             public void onClick(View v)
             {
                 db.deleteSighting(sighting);
+                Toast toast = Toast.makeText(context, "Deleted!", Toast.LENGTH_SHORT);
+                toast.show();
                 Intent newIntent = new Intent(context, MainActivity.class);
                 startActivity(newIntent);
                 finish();
@@ -252,6 +256,8 @@ public class SightingActivity extends Activity
                     sighting.setImage(sightingPhotoPath);
                     sighting.setAudio(sightingAudioControl.getFilePath());
                     db.updateSighting(sighting);
+                    Toast toast = Toast.makeText(context, "Saved!", Toast.LENGTH_SHORT);
+                    toast.show();
                     Intent newIntent = new Intent(context, MainActivity.class);
                     startActivity(newIntent);
                     finish();
