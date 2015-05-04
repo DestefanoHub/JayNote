@@ -34,8 +34,11 @@
         <activity
             android:name=".Activities.NoteActivity"
             android:label="@string/title_activity_note"
-            android:windowSoftInputMode="adjustNothing" >
+             >
         </activity>
+
+        <!--Adjust nothing on noteactivity will keep you from seeing latter halfs of the notes.-Cina-->
+
         <activity
             android:name=".Activities.LinkListActivity"
             android:label="@string/title_activity_links" >
