@@ -11,19 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.SimpleExpandableListAdapter;
 import android.support.v7.app.AppCompatDelegate;
-
-
-/*Main problem. Hitting back, exits the app instead of bringing it back to main
-Notes exits on the back button as well.
-* Links and sightings goes back to main
-* */
-
-
-
-
-
 import com.csit551.appinventors.jaynote.R;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
