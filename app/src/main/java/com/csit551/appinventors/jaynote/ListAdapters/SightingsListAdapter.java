@@ -54,6 +54,7 @@ public class SightingsListAdapter extends BaseAdapter
         dateTime = (TextView) view.findViewById(R.id.dateTime);
         SightingsModel sighting = sightings.get(position);
         name.setText(sighting.getName());
+        dateTime.setText(sighting.getDateTime());
 
         return view;
     }

@@ -108,25 +108,24 @@ public class NoteListActivity extends ActionBarActivity
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        if(id == R.id.action_home)
+        switch(id)
         {
-            Intent intent = new Intent(NoteListActivity.this.getApplicationContext(), MainActivity.class);
-            startActivity(intent);
-            finish();
-        }
-
-        if(id == R.id.action_links)
-        {
-            Intent intent = new Intent(NoteListActivity.this.getApplicationContext(), LinkListActivity.class);
-            startActivity(intent);
-            finish();
-        }
-
-        if(id == R.id.action_tips)
-        {
-            Intent intent = new Intent(NoteListActivity.this.getApplicationContext(), TipActivity.class);
-            startActivity(intent);
-/*            finish();*/
+            case R.id.action_home:
+                Intent intent1 = new Intent(NoteListActivity.this.getApplicationContext(), MainActivity.class);
+                startActivity(intent1);
+                finish();
+                break;
+            case R.id.action_links:
+                Intent intent2 = new Intent(NoteListActivity.this.getApplicationContext(), LinkListActivity.class);
+                startActivity(intent2);
+                finish();
+                break;
+            case R.id.action_tips:
+                Intent intent3 = new Intent(NoteListActivity.this.getApplicationContext(), TipActivity.class);
+                startActivity(intent3);
+                break;
+            default:
+                break;
         }
 
         return super.onOptionsItemSelected(item);

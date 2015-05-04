@@ -20,8 +20,7 @@
         android:drawSelectorOnTop="false"
         android:textColor="#FFFFFF"
         android:layout_alignParentBottom="true"
-        android:layout_below="@+id/toolbar" />
-
-
+        android:layout_below="@+id/toolbar"
+        android:entries="@array/links"/>
 
 </RelativeLayout>

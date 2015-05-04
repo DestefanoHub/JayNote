@@ -12,17 +12,17 @@
         android:id="@+id/action_home"
         android:title="@string/menuhome"
         android:orderInCategory="101"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="never" />
 
     <item
         android:id="@+id/action_links"
         android:title="@string/menulinks"
         android:orderInCategory="102"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="never" />
 
     <item
         android:id="@+id/action_notes"
         android:title="@string/menunotes"
         android:orderInCategory="103"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="never" />
 </menu>

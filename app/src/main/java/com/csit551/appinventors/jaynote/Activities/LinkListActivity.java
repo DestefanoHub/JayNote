@@ -34,8 +34,8 @@ public class LinkListActivity extends ActionBarActivity
         linkList = (ListView) findViewById(R.id.link_list);
         context = getBaseContext();
 
-        ArrayAdapter<String> linkAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_single_choice, links);
-        linkList.setAdapter(linkAdapter);
+        //ArrayAdapter<String> linkAdapter = new ArrayAdapter<String>(this, this);
+        //linkList.setAdapter(linkAdapter);
         linkList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id)
@@ -61,25 +61,23 @@ public class LinkListActivity extends ActionBarActivity
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        if(id == R.id.action_home)
+        switch(id)
         {
-            Intent intent = new Intent(LinkListActivity.this.getApplicationContext(), MainActivity.class);
-            startActivity(intent);
-            finish();
-        }
-
-        if(id == R.id.action_tips)
-        {
-            Intent intent = new Intent(LinkListActivity.this.getApplicationContext(), LinkListActivity.class);
-            startActivity(intent);
-/*            finish();*/
-        }
-
-        if(id == R.id.action_notes)
-        {
-            Intent intent = new Intent(LinkListActivity.this.getApplicationContext(), TipActivity.class);
-            startActivity(intent);
-            finish();
+            case R.id.action_home:
+                Intent intent1 = new Intent(LinkListActivity.this.getApplicationContext(), MainActivity.class);
+                startActivity(intent1);
+                finish();
+                break;
+            case R.id.action_tips:
+                Intent intent2 = new Intent(LinkListActivity.this.getApplicationContext(), TipActivity.class);
+                startActivity(intent2);
+                break;
+            case R.id.action_notes:
+                Intent intent3 = new Intent(LinkListActivity.this.getApplicationContext(), NoteListActivity.class);
+                startActivity(intent3);
+                break;
+            default:
+                break;
         }
 
         return super.onOptionsItemSelected(item);
