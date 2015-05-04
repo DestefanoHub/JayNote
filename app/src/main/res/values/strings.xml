@@ -123,4 +123,7 @@
     <string name="menuhome">Home</string>
     <string name="menutips">Tips</string>
     <string name="menunotes">Notes</string>
+    <string name="title_activity_web_view">Web View</string>
+
+    <string name="hello_world">Hello world!</string>
 </resources>
