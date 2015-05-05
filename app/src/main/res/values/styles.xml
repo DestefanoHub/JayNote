@@ -2,10 +2,13 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:textColor">#FFFFFF</item>
-        <item name="colorControlNormal">#FFFFFF</item>
-        <item name="colorControlActivated">#FFFFFF</item>
-        <item name="colorAccent">#FFFFFF</item>
-        <item name="colorControlHighlight">#FFFFFF</item>
+        <item name="android:editTextBackground">@drawable/edit_text_theme</item>
+
+    </style>
+
+    <style name="EditTextAppTheme" parent="android:Widget.EditText">
+        <item name="android:background">@drawable/edit_text_theme</item>
+        <item name="android:textColor">#FFFFFF</item>
     </style>
 
     <style name="background">
