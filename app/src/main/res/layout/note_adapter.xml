@@ -1,24 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="10dp"
     >
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:padding="5dp"
-        android:id="@+id/name"/>
+        style="@style/regular_text"
+        android:id="@+id/name"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
 
-<!--    <TextView
-        android:layout_width="match_parent"
+    <!--<TextView
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:padding="5dp"
-        android:id="@+id/body"/>-->
+        android:id="@+id/dateTime"
+        style="@style/regular_text"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />-->
 
     <!--I took the body out because it it expands way too much
     The alternative is of course to find a way way it only demonstrates
     the first line - Cina-->
 
-</LinearLayout>
+</RelativeLayout>

@@ -56,7 +56,7 @@ public class SightingActivity extends Activity
         sightingSize = (EditText) findViewById(R.id.size_animal_input);
         sightingType = (EditText) findViewById(R.id.type_organism_input);
         sightingColor = (EditText) findViewById(R.id.color_input);
-        sightingDateTime = (EditText) findViewById(R.id.time_of_day_input);
+        sightingDateTime = (EditText) findViewById(R.id.time_of_day);
         sightingLocation = (EditText) findViewById(R.id.location_input);
         sightingMisc = (EditText) findViewById(R.id.misc_input);
         save = (Button) findViewById(R.id.save_button);

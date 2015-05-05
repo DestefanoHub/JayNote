@@ -8,7 +8,8 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:padding="5dp"
-        style="@style/textcolors"
-        android:id="@+id/tip_child"/>
+        style="@style/regular_text"
+        android:id="@+id/tip_child"
+        android:textSize="@dimen/abc_text_size_medium_material" />
 
 </LinearLayout>

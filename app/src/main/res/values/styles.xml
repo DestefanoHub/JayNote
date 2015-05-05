@@ -2,6 +2,10 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:textColor">#FFFFFF</item>
+        <item name="colorControlNormal">#FFFFFF</item>
+        <item name="colorControlActivated">#FFFFFF</item>
+        <item name="colorAccent">#FFFFFF</item>
+        <item name="colorControlHighlight">#FFFFFF</item>
     </style>
 
     <style name="background">
@@ -9,22 +13,35 @@
 
     </style>    <!--Note: All backgrounds use the same color scheme.-->
 
-    <style name="textcolors">
+    <style name="regular_text">
         <item name="android:textColorHint">#CFCFCF</item>
         <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">@dimen/abc_text_size_medium_material</item>
     </style>
+
+
+    <!--Please use regular text on all non title or button text -Cina-->
+
+
 
 </resources>
 
+    <!--    <style name="titles_buttons">
+            <item name="android:textColorHint">#CFCFCF</item>
+            <item name="android:textColor">#FFFFFF</item>
+            <item name="android:textSize">@dimen/abc_text_size_large_material</item>
+        </style>-->
+<!--I considering making all the titles larger but I think it looks fine this way.-->
 
 
-    <!--Sources of images
+
+<!--    Sources of images
      Cina made the gradients
      The logo is the green jay on the wikipedia page
      The woods background is a crop from the "Wild" background
       from the Elementary OS wallpapers.-->
 
-
     <!--You can switch between gradients easily here. Just the last two characters of the reference
     above. W is for width, h for height. The first two are direct references to the colors
     of the Green Jay's feathers.-Cina-->
+

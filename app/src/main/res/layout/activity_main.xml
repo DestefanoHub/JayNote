@@ -17,6 +17,7 @@
     <ListView
         android:id="@+id/sighting_list"
         android:layout_height="wrap_content"
+        style="@style/regular_text"
         android:layout_width="wrap_content"
         android:layout_above="@+id/sighting_button"
         android:layout_alignParentRight="true"

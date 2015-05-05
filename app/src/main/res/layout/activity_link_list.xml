@@ -17,6 +17,7 @@
         android:layout_height="match_parent"
         android:id="@+id/link_list"
         android:choiceMode="singleChoice"
+        style="@style/regular_text"
         android:drawSelectorOnTop="false"
         android:textColor="#FFFFFF"
         android:layout_alignParentBottom="true"

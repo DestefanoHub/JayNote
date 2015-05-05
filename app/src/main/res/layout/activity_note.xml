@@ -14,14 +14,14 @@
 
         android:layout_alignParentStart="true"
         android:textColor="#FFFFFF"
-        style="@style/textcolors"/>
+        style="@style/regular_text"/>
 
     <EditText
         android:id="@+id/note_content"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:hint="@string/insert_text_here"
-        style="@style/textcolors"
+        style="@style/regular_text"
         android:gravity="top|left"
         android:inputType="textEmailAddress|textMultiLine"
         android:minLines="10"
