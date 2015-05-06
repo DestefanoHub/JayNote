@@ -2,6 +2,7 @@ package com.csit551.appinventors.jaynote.Activities;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -18,7 +19,7 @@ public class LinkListActivity extends ActionBarActivity
 {
     private ListView linkList;
     private Toolbar toolbar;
-    private String[] links = getResources().getStringArray(R.array.links);
+    private String[] links;
     private Context context;
 
     @Override
@@ -31,6 +32,7 @@ public class LinkListActivity extends ActionBarActivity
             setSupportActionBar(toolbar);
             toolbar.setLogo(R.drawable.ic_launcher);
         }
+        links = getResources().getStringArray(R.array.links);
         linkList = (ListView) findViewById(R.id.link_list);
         context = getBaseContext();
 
@@ -40,8 +42,9 @@ public class LinkListActivity extends ActionBarActivity
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id)
             {
-                Intent intent = new Intent(context, WebViewActivity.class);
-                intent.putExtra("web_path", links[position]);
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                String url = links[position];
+                intent.setData(Uri.parse(url));
                 startActivity(intent);
             }
         });

@@ -27,8 +27,11 @@ public class WebViewActivity extends ActionBarActivity
         }
 
         intent = this.getIntent();
-        webView = (WebView) findViewById(R.id.webView);
-        webView.loadUrl(intent.getStringExtra("web_path"));
+        webView = (WebView) findViewById(R.id.webview);
+        if (intent.hasExtra("web_path")) {
+            String url = intent.getStringExtra("web_path");
+            webView.loadUrl(url);
+        }
     }
 
     @Override
