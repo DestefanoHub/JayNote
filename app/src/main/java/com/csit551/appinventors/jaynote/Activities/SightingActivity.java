@@ -10,6 +10,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -131,6 +133,8 @@ public class SightingActivity extends Activity
             public void onClick(View v)
             {
                 if(!sightingName.getText().toString().equals("")) {
+                    Animation alphanim = AnimationUtils.loadAnimation(context, R.anim.alph);
+                    v.startAnimation(alphanim);
                     String name = sightingName.getText().toString();
                     String size = sightingSize.getText().toString();
                     String type = sightingType.getText().toString();
@@ -209,6 +213,8 @@ public class SightingActivity extends Activity
             @Override
             public void onClick(View v)
             {
+                Animation alphanim = AnimationUtils.loadAnimation(context, R.anim.alph);
+                v.startAnimation(alphanim);
                 db.deleteSighting(sighting);
                 Toast toast = Toast.makeText(context, "Deleted!", Toast.LENGTH_SHORT);
                 toast.show();
@@ -246,6 +252,8 @@ public class SightingActivity extends Activity
             public void onClick(View v)
             {
                 if(!sightingName.getText().toString().equals("")) {
+                    Animation alphanim = AnimationUtils.loadAnimation(context, R.anim.alph);
+                    v.startAnimation(alphanim);
                     sighting.setName(sightingName.getText().toString());
                     sighting.setSize(sightingSize.getText().toString());
                     sighting.setType(sightingType.getText().toString());
