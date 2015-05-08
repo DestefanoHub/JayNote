@@ -71,6 +71,15 @@ public class MainActivity extends ActionBarActivity
 
     }
 
+    //This function helps to reload the sightings list after a sighting is deleted or edited.
+    @Override
+    public void onResume()
+    {
+        super.onResume();
+        sightings = db.getAllSightings();
+        sightingsList.setAdapter(new SightingsListAdapter(sightings, this));
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent intent)
     {

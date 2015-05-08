@@ -19,12 +19,14 @@ import java.util.Date;
 
 public class AudioControl extends LinearLayout {
 
-    public static final int INITIATE_RECORDING = 1, RECORDING = 2, STOPPED_RECORDING = 3, INITIATE_PLAYING = 4, PLAYING = 5, STOPPED_PLAYING = 6;
+    public static final int INITIATE_RECORDING = 1, START_RECORDING = 2, STOP_RECORDING = 3, INITIATE_PLAYING = 4, START_PLAYING = 5, STOP_PLAYING = 6;
+    public static final int SETUP_FOR_CREATING = 7, SETUP_FOR_VIEWING = 8, SETUP_FOR_EDITING = 9;
 
     private ImageButton audioRecord;
     private ImageButton audioPlay;
+    private ImageButton audioChoose;
     private String FilePath;
-    private int currentState = 0;
+    private int currentState = 0, currentSetup = 0;
 
     private MediaRecorder mediaRecorder;
     private MediaPlayer mediaPlayer;
@@ -40,6 +42,7 @@ public class AudioControl extends LinearLayout {
         ((Activity)getContext()).getLayoutInflater().inflate(R.layout.audio_control, this);
         audioRecord = (ImageButton) findViewById(R.id.audio_record);
         audioPlay = (ImageButton) findViewById(R.id.audio_play);
+        audioChoose = (ImageButton) findViewById(R.id.audio_choose);
     }
 
     public void setOnClickListenerRecord(View.OnClickListener clkListen)
@@ -50,6 +53,11 @@ public class AudioControl extends LinearLayout {
     public void setOnClickListenerPlay(View.OnClickListener clkListen)
     {
         audioPlay.setOnClickListener(clkListen);
+    }
+
+    public void setOnClickListenerFileChooser(View.OnClickListener clkListen)
+    {
+        audioChoose.setOnClickListener(clkListen);
     }
 
     public void setFilePath(String strPath)
@@ -69,49 +77,153 @@ public class AudioControl extends LinearLayout {
         return currentState;
     }
 
+    public int getCurrentSetup()
+    {
+        return currentSetup;
+    }
+
+    public void setCurrentSetup(int setup)
+    {
+        currentSetup = setup;
+    }
+
     public void startAction(int state)
     {
         currentState = state;
-        switch(currentState) {
+        if( currentSetup == SETUP_FOR_CREATING ){
+            handleForCreationSetup();
+        }
+        else if (currentSetup == SETUP_FOR_EDITING ){
+            handleForEditingSetup();
+        }
+        else if (currentSetup == SETUP_FOR_VIEWING ){
+            handleForViewSetup();
+        }
+    }
+
+    public void handleForCreationSetup() {
+        switch (currentState) {
             case INITIATE_RECORDING:
                 audioRecord.setImageResource(R.drawable.record);
                 audioRecord.setVisibility(View.VISIBLE);
                 audioPlay.setVisibility(View.INVISIBLE);
+                audioChoose.setVisibility(View.VISIBLE);
                 break;
-            case RECORDING:
+            case START_RECORDING:
                 audioRecord.setImageResource(R.drawable.stop);
                 audioPlay.setVisibility(View.INVISIBLE);
+                audioChoose.setVisibility(View.INVISIBLE);
                 startRecordingAudio();
                 break;
-            case STOPPED_RECORDING:
+            case STOP_RECORDING:
                 stopRecordingAudio();
                 audioRecord.setImageResource(R.drawable.record);
                 audioPlay.setVisibility(View.VISIBLE);
+                audioChoose.setVisibility(View.VISIBLE);
                 currentState = INITIATE_RECORDING;
                 break;
             case INITIATE_PLAYING:
                 audioPlay.setImageResource(R.drawable.play);
-                audioRecord.setVisibility(View.INVISIBLE);
-                if(getFilePath() == null)
+                audioRecord.setVisibility(View.VISIBLE);
+                audioChoose.setVisibility(View.VISIBLE);
+                if (getFilePath() == null)
                     audioPlay.setVisibility(View.INVISIBLE);
                 else
                     audioPlay.setVisibility(View.VISIBLE);
                 break;
-            case PLAYING:
-                if(getFilePath() == null)
+            case START_PLAYING:
+                if (getFilePath() == null)
                     break;
                 startPlayingAudio();
                 audioPlay.setImageResource(R.drawable.stop);
                 audioRecord.setVisibility(View.INVISIBLE);
+                audioChoose.setVisibility(View.INVISIBLE);
                 break;
-            case STOPPED_PLAYING:
+            case STOP_PLAYING:
+                stopPlayingAudio();
+                audioPlay.setImageResource(R.drawable.play);
+                audioPlay.setVisibility(View.VISIBLE);
+                audioRecord.setVisibility(View.VISIBLE);
+                audioChoose.setVisibility(View.VISIBLE);
+                currentState = INITIATE_PLAYING;
+                break;
+        }
+    }
+
+    public void handleForEditingSetup() {
+        switch (currentState) {
+            case INITIATE_RECORDING:
+                audioRecord.setImageResource(R.drawable.record);
+                audioRecord.setVisibility(View.VISIBLE);
+                audioChoose.setVisibility(View.VISIBLE);
+                if (getFilePath() == null)
+                    audioPlay.setVisibility(View.INVISIBLE);
+                else
+                    audioPlay.setVisibility(View.VISIBLE);
+                break;
+            case START_RECORDING:
+                audioRecord.setImageResource(R.drawable.stop);
+                audioPlay.setVisibility(View.INVISIBLE);
+                audioChoose.setVisibility(View.INVISIBLE);
+                startRecordingAudio();
+                break;
+            case STOP_RECORDING:
+                stopRecordingAudio();
+                audioRecord.setImageResource(R.drawable.record);
+                audioPlay.setVisibility(View.VISIBLE);
+                audioChoose.setVisibility(View.VISIBLE);
+                currentState = INITIATE_RECORDING;
+                break;
+            case INITIATE_PLAYING:
+                audioPlay.setImageResource(R.drawable.play);
+                audioRecord.setVisibility(View.VISIBLE);
+                audioChoose.setVisibility(View.VISIBLE);
+                if (getFilePath() == null)
+                    audioPlay.setVisibility(View.INVISIBLE);
+                else
+                    audioPlay.setVisibility(View.VISIBLE);
+                break;
+            case START_PLAYING:
+                if (getFilePath() == null)
+                    break;
+                startPlayingAudio();
+                audioPlay.setImageResource(R.drawable.stop);
+                audioRecord.setVisibility(View.INVISIBLE);
+                audioChoose.setVisibility(View.INVISIBLE);
+                break;
+            case STOP_PLAYING:
+                stopPlayingAudio();
+                audioPlay.setImageResource(R.drawable.play);
+                audioPlay.setVisibility(View.VISIBLE);
+                audioRecord.setVisibility(View.VISIBLE);
+                audioChoose.setVisibility(View.VISIBLE);
+                currentState = INITIATE_PLAYING;
+                break;
+        }
+    }
+
+    public void handleForViewSetup() {
+        audioRecord.setVisibility(View.INVISIBLE);
+        audioChoose.setVisibility(View.INVISIBLE);
+        switch (currentState) {
+            case INITIATE_PLAYING:
+                audioPlay.setImageResource(R.drawable.play);
+                if (getFilePath() == null)
+                    audioPlay.setVisibility(View.INVISIBLE);
+                else
+                    audioPlay.setVisibility(View.VISIBLE);
+                break;
+            case START_PLAYING:
+                if (getFilePath() == null)
+                    break;
+                startPlayingAudio();
+                audioPlay.setImageResource(R.drawable.stop);
+                break;
+            case STOP_PLAYING:
                 stopPlayingAudio();
                 audioPlay.setImageResource(R.drawable.play);
                 audioPlay.setVisibility(View.VISIBLE);
                 currentState = INITIATE_PLAYING;
-                break;
-            default:
-                Log.v("State", "current state is invalid...");
                 break;
         }
     }
@@ -167,7 +279,7 @@ public class AudioControl extends LinearLayout {
             mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                 @Override
                 public void onCompletion(MediaPlayer mp) {
-                    startAction(STOPPED_PLAYING);
+                    startAction(STOP_PLAYING);
                 }
             });
             mediaPlayer.setDataSource(getFilePath());
@@ -189,5 +301,4 @@ public class AudioControl extends LinearLayout {
         mediaPlayer = null;
         Log.d("MyCameraApp -> MainActivity:", "Stopped media player");
     }
-
 }

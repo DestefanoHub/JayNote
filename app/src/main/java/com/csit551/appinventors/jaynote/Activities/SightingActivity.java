@@ -26,6 +26,9 @@ import java.util.Date;
 
 public class SightingActivity extends Activity
 {
+    private static final int REQUEST_CAMERA_GET = 0;
+    private static final int REQUEST_IMAGE_GET = 1;
+    private static final int REQUEST_AUDIO_GET = 2;
     private DatabaseManager db;
     private Context context;
     private SightingsModel sighting;
@@ -42,6 +45,8 @@ public class SightingActivity extends Activity
     private EditText sightingMisc;
     private ImageButton sightingPhoto;
     private String sightingPhotoPath;
+    private ImageButton sightingPhotoChoose;
+    private ImageButton sightingPhotoView;
     private AudioControl sightingAudioControl;
 
     @Override
@@ -64,6 +69,8 @@ public class SightingActivity extends Activity
         edit = (Button) findViewById(R.id.edit_button);
         sightingPhoto = (ImageButton) findViewById(R.id.organism_photo_Button);
         sightingAudioControl = (AudioControl) findViewById(R.id.audioControl);
+        sightingPhotoChoose = (ImageButton) findViewById(R.id.organism_photo_choose_Button);
+        sightingPhotoView = (ImageButton) findViewById(R.id.organism_photo_View_Button);
 
         //Listener for ImageButton click to take a picture
         sightingPhoto.setOnClickListener(new View.OnClickListener() {
@@ -71,7 +78,17 @@ public class SightingActivity extends Activity
             public void onClick(View v) {
                 // Intent of existing camera app is used
                 Intent inCam = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(inCam,0);
+                startActivityForResult(inCam, REQUEST_CAMERA_GET);
+            }
+        });
+
+        //Listener for ImageButton click to choose a picture from the memory
+        sightingPhotoChoose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Intent for opening the Gallery folder of pictures
+                Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(Intent.createChooser(intent, "Select file"), REQUEST_IMAGE_GET);
             }
         });
 
@@ -82,6 +99,13 @@ public class SightingActivity extends Activity
             }
         });
         sightingAudioControl.setOnClickListenerPlay(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                handleAudioControl(v);
+            }
+        });
+
+        sightingAudioControl.setOnClickListenerFileChooser(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 handleAudioControl(v);
@@ -124,7 +148,8 @@ public class SightingActivity extends Activity
         Calendar calendar = Calendar.getInstance();
         Date now = calendar.getTime();
         sightingDateTime.setText(now.toString());
-        //Audio buttons enabled for recording
+        //Audio buttons enabled for recording or choosing a file
+        sightingAudioControl.setCurrentSetup(AudioControl.SETUP_FOR_CREATING);
         sightingAudioControl.startAction(AudioControl.INITIATE_RECORDING);
         save.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -165,14 +190,22 @@ public class SightingActivity extends Activity
         sightingLocation.setText(sighting.getLocation());
         sightingMisc.setText(sighting.getMisc());
         sightingPhotoPath = sighting.getImage();
+        //Some of the buttons for picture are hidden
+        sightingPhoto.setVisibility(View.INVISIBLE);
+        sightingPhotoChoose.setVisibility(View.INVISIBLE);
         //Set the photo in view
         if (sightingPhotoPath != null) {
             Bitmap bp = getBitmapFromFile(sightingPhotoPath);
-            if (bp != null)
-                sightingPhoto.setImageBitmap(bp);
+            if (bp != null) {
+                sightingPhotoView.setImageBitmap(bp);
+                sightingPhotoView.setVisibility(View.VISIBLE);
+            }
         }
         //Set the file path of Audio
         sightingAudioControl.setFilePath(sighting.getAudio());
+        //Audio buttons enabled for playing audio
+        sightingAudioControl.setCurrentSetup(AudioControl.SETUP_FOR_VIEWING);
+        sightingAudioControl.startAction(AudioControl.INITIATE_PLAYING);
 
         //make the edittexts uneditable
         sightingName.setEnabled(false);
@@ -191,8 +224,8 @@ public class SightingActivity extends Activity
         sightingMisc.setFocusable(false);
         sightingPhoto.setEnabled(false);
         sightingPhoto.setFocusable(false);
-        //Audio buttons enabled for playing audio
-        sightingAudioControl.startAction(AudioControl.INITIATE_PLAYING);
+        sightingPhotoChoose.setEnabled(false);
+        sightingPhotoChoose.setFocusable(false);
 
         edit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -212,8 +245,6 @@ public class SightingActivity extends Activity
                 db.deleteSighting(sighting);
                 Toast toast = Toast.makeText(context, "Deleted!", Toast.LENGTH_SHORT);
                 toast.show();
-                Intent newIntent = new Intent(context, MainActivity.class);
-                startActivity(newIntent);
                 finish();
             }
         });
@@ -233,12 +264,15 @@ public class SightingActivity extends Activity
         //Set the photo in view
         if (sightingPhotoPath != null) {
             Bitmap bp = getBitmapFromFile(sightingPhotoPath);
-            if (bp != null)
-                sightingPhoto.setImageBitmap(bp);
+            if (bp != null) {
+                sightingPhotoView.setImageBitmap(bp);
+                sightingPhotoView.setVisibility(View.VISIBLE);
+            }
         }
         //Set the file path of Audio
         sightingAudioControl.setFilePath(sighting.getAudio());
         //Audio buttons enabled for playing audio
+        sightingAudioControl.setCurrentSetup(AudioControl.SETUP_FOR_EDITING);
         sightingAudioControl.startAction(AudioControl.INITIATE_RECORDING);
 
         save.setOnClickListener(new View.OnClickListener() {
@@ -268,23 +302,54 @@ public class SightingActivity extends Activity
                 }
             }
         });
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                db.deleteSighting(sighting);
+                Toast toast = Toast.makeText(context, "Deleted!", Toast.LENGTH_SHORT);
+                toast.show();
+                finish();
+            }
+        });
     }
 
     //Below method will be triggered when user closed picture app by clicking save or discard
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == RESULT_OK) {
-            Bundle retBundle = data.getExtras();
-
-            Bitmap bp = (Bitmap) retBundle.get("data");
-            sightingPhoto.setImageBitmap(bp);
-            Uri imgUri = data.getData();
-            sightingPhotoPath = getFilePathFromUri(imgUri);
+        if (requestCode == REQUEST_AUDIO_GET)
+        {
+            if (resultCode == RESULT_OK) {
+                Uri audUri = data.getData();
+                sightingAudioControl.setFilePath(getFilePathFromUri(audUri));
+                sightingAudioControl.startAction(AudioControl.INITIATE_PLAYING);
+            }
+            else if(resultCode == RESULT_CANCELED) {
+                Toast toast = Toast.makeText(context, "Audio is not chosen", Toast.LENGTH_SHORT);
+                toast.show();
+            }
         }
-        else if(resultCode == RESULT_CANCELED) {
-            Toast toast = Toast.makeText(context, "Photo is not saved", Toast.LENGTH_SHORT);
-            toast.show();
+        else if (requestCode == REQUEST_IMAGE_GET || requestCode == REQUEST_CAMERA_GET) {
+            if (resultCode == RESULT_OK) {
+                Uri imgUri = data.getData();
+                sightingPhotoPath = getFilePathFromUri(imgUri);
+
+                Bundle retBundle = data.getExtras();
+                Bitmap bp = (Bitmap) retBundle.get("data");
+                if (bp == null)
+                    bp = getBitmapFromFile(sightingPhotoPath);
+                sightingPhotoView.setImageBitmap(bp);
+                sightingPhotoView.setVisibility(View.VISIBLE);
+            } else if (resultCode == RESULT_CANCELED) {
+                String strMsg = "";
+                if (requestCode == 0)
+                    strMsg = "Photo is not saved";
+                else if (requestCode == 1)
+                    strMsg = "Photo is not choosen";
+                Toast toast = Toast.makeText(context, strMsg, Toast.LENGTH_SHORT);
+                toast.show();
+            }
         }
     }
 
@@ -334,21 +399,26 @@ public class SightingActivity extends Activity
     private void handleAudioControl(View v)
     {
         int curState = sightingAudioControl.getCurrentState();
-        if (v.getId() == R.id.audio_record) {
+        if (v.getId() == R.id.audio_choose){
+            // Intent for opening the audio folder of choosing
+            Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Audio.Media.EXTERNAL_CONTENT_URI);
+            startActivityForResult(Intent.createChooser(intent, "Select file"), REQUEST_AUDIO_GET);
+        }
+        else if (v.getId() == R.id.audio_record) {
             //step 2
-            if (curState == AudioControl.RECORDING)
-                sightingAudioControl.startAction(AudioControl.STOPPED_RECORDING);
+            if (curState == AudioControl.START_RECORDING)
+                sightingAudioControl.startAction(AudioControl.STOP_RECORDING);
                 //step 1
             else //if (curState == AudioControl.INITIATE_RECORDING)
-                sightingAudioControl.startAction(AudioControl.RECORDING);
+                sightingAudioControl.startAction(AudioControl.START_RECORDING);
         }
         else if (v.getId() == R.id.audio_play) {
             //step 2
-            if (curState == AudioControl.PLAYING)
-                sightingAudioControl.startAction(AudioControl.STOPPED_PLAYING);
+            if (curState == AudioControl.START_PLAYING)
+                sightingAudioControl.startAction(AudioControl.STOP_PLAYING);
                 //step 1
             else //if (curState == AudioControl.INITIATE_PLAYING)
-                sightingAudioControl.startAction(AudioControl.PLAYING);
+                sightingAudioControl.startAction(AudioControl.START_PLAYING);
         }
     }
 
@@ -356,10 +426,10 @@ public class SightingActivity extends Activity
     public void finish()
     {
         //This function is overridden to close any audio recording or playing
-        if (sightingAudioControl.getCurrentState() == AudioControl.PLAYING)
-            sightingAudioControl.startAction(AudioControl.STOPPED_PLAYING);
-        else if (sightingAudioControl.getCurrentState() == AudioControl.RECORDING) {
-            sightingAudioControl.startAction(AudioControl.STOPPED_RECORDING);
+        if (sightingAudioControl.getCurrentState() == AudioControl.START_PLAYING)
+            sightingAudioControl.startAction(AudioControl.STOP_PLAYING);
+        else if (sightingAudioControl.getCurrentState() == AudioControl.START_RECORDING) {
+            sightingAudioControl.startAction(AudioControl.STOP_RECORDING);
             Toast tt = Toast.makeText(context, "Audio recording is stopped and saved", Toast.LENGTH_SHORT);
             tt.show();
         }
