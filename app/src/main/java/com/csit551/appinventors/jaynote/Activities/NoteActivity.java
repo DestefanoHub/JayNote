@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -77,6 +79,8 @@ public class NoteActivity extends Activity
             public void onClick(View v)
             {
                 if(!noteName.getText().toString().equals("")) {
+                    Animation alphanim = AnimationUtils.loadAnimation(context, R.anim.alph);
+                    v.startAnimation(alphanim);
                     String name = noteName.getText().toString();
                     String body = noteBody.getText().toString();
                     db.insertNote(name, body);
@@ -128,6 +132,8 @@ public class NoteActivity extends Activity
             public void onClick(View v)
             {
                 if(!noteName.getText().toString().equals("")) {
+                    Animation alphanim = AnimationUtils.loadAnimation(context, R.anim.alph);
+                    v.startAnimation(alphanim);
                     note.setName(noteName.getText().toString());
                     note.setBody(noteBody.getText().toString());
                     db.updateNote(note);
@@ -147,6 +153,8 @@ public class NoteActivity extends Activity
             @Override
             public void onClick(View v)
             {
+                Animation alphanim = AnimationUtils.loadAnimation(context, R.anim.alph);
+                v.startAnimation(alphanim);
                 db.deleteNote(note);
                 Toast toast = Toast.makeText(context, "Deleted!", Toast.LENGTH_SHORT);
                 toast.show();

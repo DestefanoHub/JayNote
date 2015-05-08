@@ -6,10 +6,6 @@
 
     </style>
 
-    <style name="EditTextAppTheme" parent="android:Widget.EditText">
-        <item name="android:background">@drawable/edit_text_theme</item>
-        <item name="android:textColor">#FFFFFF</item>
-    </style>
 
     <style name="background">
         <item name="android:background">@drawable/backgroundwoods</item>

@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
@@ -61,6 +63,8 @@ public class MainActivity extends ActionBarActivity
         newSighting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Animation alphanim = AnimationUtils.loadAnimation(context, R.anim.alph);
+                v.startAnimation(alphanim);
                 Intent intent = new Intent(context, SightingActivity.class);
                 //create a new sighting
                 intent.putExtra("create_view_edit", 0);
