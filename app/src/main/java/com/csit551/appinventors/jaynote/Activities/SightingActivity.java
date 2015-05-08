@@ -1,20 +1,26 @@
 package com.csit551.appinventors.jaynote.Activities;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
+import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.csit551.appinventors.jaynote.Database.DatabaseManager;
@@ -91,6 +97,14 @@ public class SightingActivity extends Activity
                 // Intent for opening the Gallery folder of pictures
                 Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 startActivityForResult(Intent.createChooser(intent, "Select file"), REQUEST_IMAGE_GET);
+            }
+        });
+
+        //Listener for ImageButton click to show an enlarged picture
+        sightingPhotoView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPicturePreviewDialog();
             }
         });
 
@@ -442,5 +456,47 @@ public class SightingActivity extends Activity
             tt.show();
         }
         super.finish();
+    }
+
+    // To show the preview of the image in an enlarged view
+    public void showPicturePreviewDialog()
+    {
+        final Dialog nagDialog = new Dialog(this,android.R.style.Theme_NoTitleBar_Fullscreen);
+        nagDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        nagDialog.setContentView(R.layout.activity_picture_preview);
+
+        ImageView ivPreview = (ImageView)nagDialog.findViewById(R.id.imgView_Preview);
+        Drawable draw = ImgDrawableFromFile(getResources(), sightingPhotoPath);
+
+        if (draw == null)
+        {
+            Toast tt = Toast.makeText(context, "No picture to enlarge.", Toast.LENGTH_SHORT);
+            tt.show();
+            return;
+        }
+        ivPreview.setImageDrawable(draw);
+
+        Button btnClose = (Button)nagDialog.findViewById(R.id.close_button);
+        btnClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg0) {
+                nagDialog.dismiss();
+            }
+        });
+        nagDialog.show();
+        draw = null;
+    }
+
+    // To get a Drawable object of the image using file path.
+    public Drawable ImgDrawableFromFile(Resources res, String filePath) {
+        if (filePath == null)
+            return null;
+        File imgFile = new File(filePath);
+        if(!imgFile.exists())
+            return null;
+
+        Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
+        Drawable draw = new BitmapDrawable(res, myBitmap);
+        return draw;
     }
 }

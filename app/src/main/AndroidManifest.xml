@@ -19,6 +19,7 @@
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -33,11 +34,10 @@
         </activity>
         <activity
             android:name=".Activities.NoteActivity"
-            android:label="@string/title_activity_note"
-             >
+            android:label="@string/title_activity_note" >
         </activity>
 
-        <!--Adjust nothing on noteactivity will keep you from seeing latter halfs of the notes.-Cina-->
+        <!-- Adjust nothing on noteactivity will keep you from seeing latter halfs of the notes.-Cina -->
 
         <activity
             android:name=".Activities.LinkListActivity"
@@ -50,6 +50,10 @@
         <activity
             android:name=".Activities.WebViewActivity"
             android:label="@string/title_activity_web_view" >
+        </activity>
+        <activity
+            android:name=".picture_preview"
+            android:label="@string/title_activity_picture_preview" >
         </activity>
     </application>
 
