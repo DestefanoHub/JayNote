@@ -214,8 +214,8 @@ public class SightingActivity extends Activity
         if (sightingPhotoPath != null) {
             Bitmap bp = getBitmapFromFile(sightingPhotoPath);
             if (bp != null) {
-                sightingPhotoView.setImageBitmap(bp);
                 sightingPhotoView.setVisibility(View.VISIBLE);
+                sightingPhotoView.setImageBitmap(bp);
             }
         }
         //Set the file path of Audio
@@ -284,8 +284,8 @@ public class SightingActivity extends Activity
         if (sightingPhotoPath != null) {
             Bitmap bp = getBitmapFromFile(sightingPhotoPath);
             if (bp != null) {
-                sightingPhotoView.setImageBitmap(bp);
                 sightingPhotoView.setVisibility(View.VISIBLE);
+                sightingPhotoView.setImageBitmap(bp);
             }
         }
         //Set the file path of Audio
@@ -360,8 +360,8 @@ public class SightingActivity extends Activity
                 Bitmap bp = (Bitmap) retBundle.get("data");
                 if (bp == null)
                     bp = getBitmapFromFile(sightingPhotoPath);
-                sightingPhotoView.setImageBitmap(bp);
                 sightingPhotoView.setVisibility(View.VISIBLE);
+                sightingPhotoView.setImageBitmap(bp);
             } else if (resultCode == RESULT_CANCELED) {
                 String strMsg = "";
                 if (requestCode == 0)
