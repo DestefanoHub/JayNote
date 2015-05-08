@@ -10,7 +10,24 @@
     <style name="background">
         <item name="android:background">@drawable/backgroundwoods</item>
 
-    </style>    <!--Note: All backgrounds use the same color scheme.-->
+    </style>
+
+    <!--Note: All backgrounds use the same color scheme.-->
+                <!--Instructions on changing background:
+                    There are 5 potential backgrounds
+                    1)@drawable/backgroundwoods     This is taken from an elementary OS wallpaper
+                    2)@drawable/backgroundgradientgreensh       ONLY the green colors of the jay height (vertical) range
+                    3)@drawable/backgroundgradientgreensw       ONLY the green colors of the jay width (horizontal) range
+                    4)@drawable/backgroundgradientblueh         This was the default before. Green and blue colors height/vertical range
+                    5)@drawable/backgroundgradientgreensw       This was used briefly. Same as above except width/horizontal range
+
+                    -Cina                                   -->
+
+
+
+
+
+
 
     <style name="regular_text">
         <item name="android:textColorHint">#CFCFCF</item>
