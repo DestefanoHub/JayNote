@@ -15,7 +15,6 @@ import com.csit551.appinventors.jaynote.Database.DatabaseManager;
 import com.csit551.appinventors.jaynote.Database.NotesModel;
 import com.csit551.appinventors.jaynote.R;
 
-
 public class NoteActivity extends Activity
 {
     private DatabaseManager db;

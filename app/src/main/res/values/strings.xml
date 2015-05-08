@@ -98,11 +98,11 @@
     <string name="note_title_hint">Name of Note</string>
     <string name="sighting_title"><u>Title</u></string>
     <string name="size_animal"><u>Size of Organism</u></string>
-    <string name="size_hint">Bigger then, smaller then</string>
+    <string name="size_hint">Bigger than, smaller than</string>
     <string name="estimated_weight"><u>Estimated Weight</u></string>
-    <string name="weight_hint">Heavier than, lighter then, etc.</string>
+    <string name="weight_hint">Heavier than, lighter than, etc.</string>
     <string name="type_of_organism"><u>Type of Organism</u></string>
-    <string name="type_organism_hint">A reptile, a bird, a zebra, etc.</string>
+    <string name="type_organism_hint">A reptile, a bird, a mammal, etc.</string>
     <string name="color_organism"><u>Colors</u></string>
     <string name="upload_sound"><u>Upload Sound</u></string>
     <string name="organism_photo"><u>Photo</u></string>

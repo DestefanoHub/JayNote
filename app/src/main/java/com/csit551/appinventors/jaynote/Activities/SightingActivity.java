@@ -31,7 +31,6 @@ import java.io.File;
 import java.util.Calendar;
 import java.util.Date;
 
-
 public class SightingActivity extends Activity
 {
     private static final int REQUEST_CAMERA_GET = 0;

@@ -122,8 +122,9 @@ public class DatabaseManager
     {
         ArrayList<SightingsModel> sightings = new ArrayList<>();
         String[] columns = new String[]{"id", "name", "size", "type", "color", "dateTime", "audio", "image", "location", "misc"};
+        String orderBy = "id";
         try {
-            Cursor cursor = db.query(DB_TABLE_SIGHTINGS, columns, null, null, null, null, null);
+            Cursor cursor = db.query(DB_TABLE_SIGHTINGS, columns, null, null, null, null, orderBy + " DESC");
             cursor.moveToFirst();
 
             while (!cursor.isAfterLast()) {
@@ -206,8 +207,9 @@ public class DatabaseManager
     {
         ArrayList<NotesModel> notes = new ArrayList<>();
         String[] columns = new String[]{"id", "name", "body"};
+        String orderBy = "id";
         try {
-            Cursor cursor = db.query(DB_TABLE_NOTES, columns, null, null, null, null, null);
+            Cursor cursor = db.query(DB_TABLE_NOTES, columns, null, null, null, null, orderBy + " DESC");
             cursor.moveToFirst();
 
             while (!cursor.isAfterLast()) {
@@ -228,7 +230,8 @@ public class DatabaseManager
 
 
 
-    public class SQLHelper extends SQLiteOpenHelper {
+    public class SQLHelper extends SQLiteOpenHelper
+    {
         public SQLHelper(Context c){
             super(c, DB_NAME, null, DB_VERSION);
         }

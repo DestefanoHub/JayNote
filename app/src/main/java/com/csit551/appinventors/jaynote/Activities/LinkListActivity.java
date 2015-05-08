@@ -10,7 +10,6 @@ import android.view.MenuItem;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.csit551.appinventors.jaynote.R;
@@ -36,8 +35,6 @@ public class LinkListActivity extends ActionBarActivity
         linkList = (ListView) findViewById(R.id.link_list);
         context = getBaseContext();
 
-        //ArrayAdapter<String> linkAdapter = new ArrayAdapter<String>(this, this);
-        //linkList.setAdapter(linkAdapter);
         linkList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id)

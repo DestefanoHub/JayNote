@@ -21,7 +21,6 @@ import com.csit551.appinventors.jaynote.R;
 
 import java.util.ArrayList;
 
-
 public class NoteListActivity extends ActionBarActivity
 {
     private DatabaseManager db;

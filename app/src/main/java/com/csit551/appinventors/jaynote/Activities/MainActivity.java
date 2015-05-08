@@ -55,7 +55,6 @@ public class MainActivity extends ActionBarActivity
                 SightingsModel sighting = (SightingsModel) sightingsList.getAdapter().getItem(position);
                 intent.putExtra("sighting_id", sighting.getId());
                 startActivity(intent);
-                //finish();
             }
         });
 
