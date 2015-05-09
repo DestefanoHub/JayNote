@@ -9,7 +9,7 @@
     <uses-permission android:name="android.permission.RECORD_VIDEO" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
-
+    <grant-uri-permission android:path="string" android:pathPattern="string" android:pathPrefix="string" />
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"

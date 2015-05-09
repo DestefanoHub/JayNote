@@ -8,25 +8,15 @@
 
 
     <style name="background">
-        <item name="android:background">@drawable/backgroundwoods3</item>
+        <item name="android:background">@drawable/backgroundgradientgreenblueh</item>
 
     </style>
 
-    <!--Note: All backgrounds use the same color scheme.-->
-                <!--Instructions on changing background:
-                    There are 5 potential backgrounds
-                    1)@drawable/backgroundwoods     This is taken from an elementary OS wallpaper
-                    2)@drawable/backgroundgradientgreensh       ONLY the green colors of the jay height (vertical) range
-                    3)@drawable/backgroundgradientgreensw       ONLY the green colors of the jay width (horizontal) range
-                    4)@drawable/backgroundgradientblueh         This was the default before. Green and blue colors height/vertical range
-                    5)@drawable/backgroundgradientgreensw       This was used briefly. Same as above except width/horizontal range
-
-                    -Cina                                   -->
-
-
-
-
-
+    <!--After a ton of testing, I decided on the gradient. It stretches the best in comparison
+    and is the least visually intrusive. I liked the woods more though.
+     The woods was nicer in smaller resolutions but had
+    issues in landscape mode. Higher res versions were too bright.
+    However, a darker, higher res version could be a substitute in the future.-Cina-->
 
 
     <style name="regular_text">
