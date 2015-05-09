@@ -8,7 +8,7 @@
 
 
     <style name="background">
-        <item name="android:background">@drawable/backgroundwoods</item>
+        <item name="android:background">@drawable/backgroundwoods3</item>
 
     </style>
 

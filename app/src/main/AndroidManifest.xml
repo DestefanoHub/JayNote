@@ -31,14 +31,15 @@
         <activity
             android:name=".Activities.SightingActivity"
             android:label="@string/title_activity_sighting"
-            android:windowSoftInputMode="adjustNothing" >
+             >
         </activity>
         <activity
             android:name=".Activities.NoteActivity"
             android:label="@string/title_activity_note" >
         </activity>
 
-        <!-- Adjust nothing on noteactivity will keep you from seeing latter halfs of the notes.-Cina -->
+        <!-- Adjust nothing on noteactivity will keep you from seeing latter halfs of the notes.-Cina
+        android:windowSoftInputMode="adjustNothing"-->
 
         <activity
             android:name=".Activities.LinkListActivity"
