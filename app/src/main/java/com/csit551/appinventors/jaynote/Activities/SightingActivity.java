@@ -5,14 +5,16 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
-import android.database.Cursor;
+//import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
+//import android.provider.OpenableColumns;
 import android.view.View;
 import android.view.Window;
 import android.view.animation.Animation;
@@ -28,12 +30,13 @@ import com.csit551.appinventors.jaynote.Database.SightingsModel;
 import com.csit551.appinventors.jaynote.R;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
 public class SightingActivity extends Activity
 {
-    private static final int REQUEST_CAMERA_GET = 0;
+    private static final int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 100;
     private static final int REQUEST_IMAGE_GET = 1;
     private static final int REQUEST_AUDIO_GET = 2;
     private DatabaseManager db;
@@ -55,6 +58,7 @@ public class SightingActivity extends Activity
     private ImageButton sightingPhotoChoose;
     private ImageButton sightingPhotoView;
     private AudioControl sightingAudioControl;
+    private Uri uriImgFile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,7 +89,10 @@ public class SightingActivity extends Activity
             public void onClick(View v) {
                 // Intent of existing camera app is used
                 Intent inCam = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(inCam, REQUEST_CAMERA_GET);
+                uriImgFile = getImageFileUri();
+                inCam.putExtra(MediaStore.EXTRA_OUTPUT, uriImgFile);
+
+                startActivityForResult(inCam, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
             }
         });
 
@@ -343,7 +350,10 @@ public class SightingActivity extends Activity
         {
             if (resultCode == RESULT_OK) {
                 Uri audUri = data.getData();
-                sightingAudioControl.setFilePath(getFilePathFromUri(audUri));
+                String strfName = null;
+                if (audUri != null)
+                    strfName = (new File(uriImgFile.getPath())).getAbsolutePath();
+                sightingAudioControl.setFilePath(strfName);
                 sightingAudioControl.startAction(AudioControl.INITIATE_PLAYING);
             }
             else if(resultCode == RESULT_CANCELED) {
@@ -351,13 +361,17 @@ public class SightingActivity extends Activity
                 toast.show();
             }
         }
-        else if (requestCode == REQUEST_IMAGE_GET || requestCode == REQUEST_CAMERA_GET) {
+        else if (requestCode == REQUEST_IMAGE_GET || requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
-                Uri imgUri = data.getData();
-                sightingPhotoPath = getFilePathFromUri(imgUri);
 
-                Bundle retBundle = data.getExtras();
-                Bitmap bp = (Bitmap) retBundle.get("data");
+                if (uriImgFile != null)
+                    sightingPhotoPath = (new File(uriImgFile.getPath())).getAbsolutePath();
+
+                Bitmap bp = null;
+                if (data != null){
+                    Bundle retBundle = data.getExtras();
+                    bp = (Bitmap) retBundle.get("data");
+                }
                 if (bp == null)
                     bp = getBitmapFromFile(sightingPhotoPath);
                 sightingPhotoView.setVisibility(View.VISIBLE);
@@ -374,6 +388,7 @@ public class SightingActivity extends Activity
         }
     }
 
+    /*
     //This method helps to get the path of the photo taken
     private String getFilePathFromUri(Uri u)
     {
@@ -381,6 +396,8 @@ public class SightingActivity extends Activity
         String[] filePathColumn = {MediaStore.Images.Media.DATA};
 
         Cursor cursor = getContentResolver().query(u, filePathColumn, null, null, null);
+        if (cursor == null)
+            return null;
         cursor.moveToFirst();
 
         int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
@@ -388,6 +405,7 @@ public class SightingActivity extends Activity
         cursor.close();
         return strFilePath;
     }
+*/
 
     //This method is to get the bitmap of a given image file path
     private Bitmap getBitmapFromFile(String FileName)
@@ -497,5 +515,13 @@ public class SightingActivity extends Activity
         Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
         Drawable draw = new BitmapDrawable(res, myBitmap);
         return draw;
+    }
+
+    private Uri getImageFileUri() {
+        // Make a unique file name based on date and time
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        File mediaFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES) + File.separator + "IMG_"+ timeStamp + ".jpg");
+
+        return Uri.fromFile(mediaFile);
     }
 }
