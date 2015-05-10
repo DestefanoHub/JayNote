@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 //import android.database.Cursor;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
@@ -350,10 +351,7 @@ public class SightingActivity extends Activity
         {
             if (resultCode == RESULT_OK) {
                 Uri audUri = data.getData();
-                String strfName = null;
-                if (audUri != null)
-                    strfName = (new File(uriImgFile.getPath())).getAbsolutePath();
-                sightingAudioControl.setFilePath(strfName);
+                sightingAudioControl.setFilePath(getFilePathFromUri(audUri));
                 sightingAudioControl.startAction(AudioControl.INITIATE_PLAYING);
             }
             else if(resultCode == RESULT_CANCELED) {
@@ -363,15 +361,18 @@ public class SightingActivity extends Activity
         }
         else if (requestCode == REQUEST_IMAGE_GET || requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
-
-                if (uriImgFile != null)
-                    sightingPhotoPath = (new File(uriImgFile.getPath())).getAbsolutePath();
-
                 Bitmap bp = null;
                 if (data != null){
+                    sightingPhotoPath = getFilePathFromUri(data.getData());
                     Bundle retBundle = data.getExtras();
                     bp = (Bitmap) retBundle.get("data");
                 }
+
+                if (uriImgFile != null) {
+                    sightingPhotoPath = (new File(uriImgFile.getPath())).getAbsolutePath();
+                    uriImgFile = null;
+                }
+
                 if (bp == null)
                     bp = getBitmapFromFile(sightingPhotoPath);
                 sightingPhotoView.setVisibility(View.VISIBLE);
@@ -388,7 +389,6 @@ public class SightingActivity extends Activity
         }
     }
 
-    /*
     //This method helps to get the path of the photo taken
     private String getFilePathFromUri(Uri u)
     {
@@ -405,7 +405,6 @@ public class SightingActivity extends Activity
         cursor.close();
         return strFilePath;
     }
-*/
 
     //This method is to get the bitmap of a given image file path
     private Bitmap getBitmapFromFile(String FileName)
