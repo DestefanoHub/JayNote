@@ -30,6 +30,7 @@
     <string name="title_activity_sighting">Tu Avistamiento </string>
     <string name="title_activity_sighting_list">Avistamientos</string>
     <string name="title_activity_tip">Consejos</string>
+    <string name="title_activity_picture_preview">imagen de vista previa</string>
     <string name="type_of_organism"><u>Tipo de Organismo</u></string>
     <string name="type_organism_hint">Un reptil, un pájaro, una cebra, etc.</string>
     <string name="upload_sound"><u>Subir Sonido</u></string>
@@ -40,6 +41,8 @@
     <string name="Food"><u>Comida</u></string>
     <string name="Water"><u>Agua</u></string>
     <string name="FirstAid"><u>Primeros Auxilios</u></string>
+    <string name="close">Cerra</string>
+
 
 <!--still gotta translate these yo-->
 
